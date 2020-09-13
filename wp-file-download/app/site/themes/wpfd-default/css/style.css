@@ -1,0 +1,671 @@
+@charset "UTF-8";
+/**
+ * WP File Download
+ *
+ * We developed this code with our hearts and passion.
+ * We hope you found it useful, easy to understand and to customize.
+ * Otherwise, please feel free to contact us at contact@joomunited.com *
+ * @package WP File Download
+ * @copyright Copyright (C) 2013 JoomUnited (http://www.joomunited.com). All rights reserved.
+ * @copyright Copyright (C) 2013 Damien Barrère (http://www.crac-design.com). All rights reserved.
+ * @license GNU General Public License version 2 or later; http://www.gnu.org/licenses/gpl-2.0.html
+ */
+#et-boc .wpfd-content-default h2, .wpfd-content-default h2 {
+  padding: 0.5555555556em 0 0 0;
+  margin: 0 0 0.5555555556em 0;
+  font-size: 1em;
+  color: #595959;
+}
+@media only screen and (max-width: 720px) {
+  #et-boc .wpfd-content-default h2, .wpfd-content-default h2 {
+    margin: 0 0 0.3888888889em 0;
+    padding-top: 0.3888888889em;
+  }
+}
+#et-boc .wpfd-content-default a, .wpfd-content-default a {
+  text-decoration: none !important;
+  border-bottom: 0;
+  box-shadow: none;
+  color: #444;
+  transition: all 0.2s ease;
+}
+#et-boc .wpfd-content-default a:hover, .wpfd-content-default a:hover {
+  box-shadow: 1px 1px 0.6666666667em #ccc;
+}
+#et-boc .wpfd-content-default .wpfd-container, .wpfd-content-default .wpfd-container {
+  flex-flow: row;
+}
+@media only screen and (max-width: 720px) {
+  #et-boc .wpfd-content-default .wpfd-container .wpfd-foldertree ul.jaofiletree, .wpfd-content-default .wpfd-container .wpfd-foldertree ul.jaofiletree {
+    margin: 10px 0 !important;
+  }
+}
+#et-boc .wpfd-content-default .wpfd-container .wpfd-foldertree ul.jaofiletree li, .wpfd-content-default .wpfd-container .wpfd-foldertree ul.jaofiletree li {
+  margin: 0 0 10px 0 !important;
+}
+#et-boc .wpfd-content-default .wpfd-container .wpfd-foldertree ul.jaofiletree li.selected > a, .wpfd-content-default .wpfd-container .wpfd-foldertree ul.jaofiletree li.selected > a {
+  color: #3d3d3d;
+  font-weight: bold;
+}
+#et-boc .wpfd-content-default .wpfd-container .wpfd-foldertree ul.jaofiletree li.selected > .zmdi-folder, .wpfd-content-default .wpfd-container .wpfd-foldertree ul.jaofiletree li.selected > .zmdi-folder {
+  color: #3d3d3d;
+  font-weight: bold;
+}
+#et-boc .wpfd-content-default .wpfd-container .wpfd-foldertree ul.jaofiletree li.selected > .zmdi-folder:before, .wpfd-content-default .wpfd-container .wpfd-foldertree ul.jaofiletree li.selected > .zmdi-folder:before {
+  color: #3d3d3d;
+  font-weight: bold;
+}
+#et-boc .wpfd-content-default .wpfd-container .wpfd-foldertree ul.jaofiletree li.selected > .icon-open-close, .wpfd-content-default .wpfd-container .wpfd-foldertree ul.jaofiletree li.selected > .icon-open-close {
+  color: #3d3d3d;
+  font-weight: bold;
+}
+#et-boc .wpfd-content-default .wpfd-container .wpfd-foldertree ul.jaofiletree li.selected > .icon-open-close:before, .wpfd-content-default .wpfd-container .wpfd-foldertree ul.jaofiletree li.selected > .icon-open-close:before {
+  color: #3d3d3d;
+  font-weight: bold;
+}
+#et-boc .wpfd-content-default .wpfd-container .wpfd-foldertree ul.jaofiletree a, .wpfd-content-default .wpfd-container .wpfd-foldertree ul.jaofiletree a {
+  color: #666666;
+  font-weight: normal;
+  font-stretch: normal;
+  font-style: normal;
+  letter-spacing: normal;
+  text-align: left;
+}
+#et-boc .wpfd-content-default .wpfd-container .wpfd-foldertree ul.jaofiletree .zmdi-folder,
+#et-boc .wpfd-content-default .wpfd-container .wpfd-foldertree ul.jaofiletree .zmdi-folder-open,
+#et-boc .wpfd-content-default .wpfd-container .wpfd-foldertree ul.jaofiletree .icon-open-close, .wpfd-content-default .wpfd-container .wpfd-foldertree ul.jaofiletree .zmdi-folder,
+.wpfd-content-default .wpfd-container .wpfd-foldertree ul.jaofiletree .zmdi-folder-open,
+.wpfd-content-default .wpfd-container .wpfd-foldertree ul.jaofiletree .icon-open-close {
+  color: #888888;
+}
+#et-boc .wpfd-content-default .wpfd-container .wpfd-foldertree ul.jaofiletree .zmdi-folder, .wpfd-content-default .wpfd-container .wpfd-foldertree ul.jaofiletree .zmdi-folder {
+  margin-top: 1px;
+  margin-right: 8px;
+}
+#et-boc .wpfd-content-default .wpfd_list, .wpfd-content-default .wpfd_list {
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  flex: auto;
+  flex-wrap: wrap;
+}
+#et-boc .wpfd-content-default .wpfd_list .file, .wpfd-content-default .wpfd_list .file {
+  font-size: 13px;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  background: #ffffff;
+  min-height: 3.8888888889em;
+  min-width: 350px;
+  padding: 15px;
+  border-radius: 4px;
+  border: 1px solid #ccc;
+  width: calc(50% - 20px);
+  float: left;
+  box-sizing: border-box;
+  flex-grow: 1;
+}
+@media only screen and (max-width: 720px) {
+  #et-boc .wpfd-content-default .wpfd_list .file, .wpfd-content-default .wpfd_list .file {
+    min-width: unset;
+  }
+}
+#et-boc .wpfd-content-default .wpfd_list .file.flex_span, .wpfd-content-default .wpfd_list .file.flex_span {
+  height: 1px;
+  background: transparent !important;
+  min-height: 1px !important;
+  max-height: 1px !important;
+  padding-top: 0 !important;
+  padding-bottom: 0 !important;
+  margin-top: 0 !important;
+  margin-bottom: 0 !important;
+  border: none;
+}
+#et-boc .wpfd-content-default .wpfd_list .file input.cbox_file_download:focus, .wpfd-content-default .wpfd_list .file input.cbox_file_download:focus {
+  outline: unset;
+}
+#et-boc .wpfd-content-default .filecontent > div.ext, .wpfd-content-default .filecontent > div.ext {
+  height: 5.5555555556em;
+  width: 4.1666666667em;
+  margin-right: 0.8333333333em;
+  float: left;
+  background: url(../../../assets/images/theme/neutral.png) top center transparent no-repeat;
+  color: #fff;
+  position: relative;
+  top: 0;
+}
+@media screen and (max-width: 420px) {
+  #et-boc .wpfd-content-default .filecontent > div.ext, .wpfd-content-default .filecontent > div.ext {
+    margin-bottom: 10px;
+  }
+}
+#et-boc .wpfd-content-default .filecontent > div.ext.ai, .wpfd-content-default .filecontent > div.ext.ai {
+  background-image: url(../../../assets/images/theme/ai.png);
+  color: transparent;
+}
+#et-boc .wpfd-content-default .filecontent > div.ext.avi, .wpfd-content-default .filecontent > div.ext.avi {
+  background-image: url(../../../assets/images/theme/avi.png);
+  color: transparent;
+}
+#et-boc .wpfd-content-default .filecontent > div.ext.psd, .wpfd-content-default .filecontent > div.ext.psd {
+  background-image: url(../../../assets/images/theme/psd.png);
+  color: transparent;
+}
+#et-boc .wpfd-content-default .filecontent > div.ext.css, .wpfd-content-default .filecontent > div.ext.css {
+  background-image: url(../../../assets/images/theme/css.png);
+  color: transparent;
+}
+#et-boc .wpfd-content-default .filecontent > div.ext.csv, .wpfd-content-default .filecontent > div.ext.csv {
+  background-image: url(../../../assets/images/theme/csv.png);
+  color: transparent;
+}
+#et-boc .wpfd-content-default .filecontent > div.ext.dll, .wpfd-content-default .filecontent > div.ext.dll {
+  background-image: url(../../../assets/images/theme/dll.png);
+  color: transparent;
+}
+#et-boc .wpfd-content-default .filecontent > div.ext.doc, .wpfd-content-default .filecontent > div.ext.doc {
+  background-image: url(../../../assets/images/theme/doc.png);
+  color: transparent;
+}
+#et-boc .wpfd-content-default .filecontent > div.ext.docx, .wpfd-content-default .filecontent > div.ext.docx {
+  background-image: url(../../../assets/images/theme/docx.png);
+  color: transparent;
+}
+#et-boc .wpfd-content-default .filecontent > div.ext.fla, .wpfd-content-default .filecontent > div.ext.fla {
+  background-image: url(../../../assets/images/theme/fla.png);
+  color: transparent;
+}
+#et-boc .wpfd-content-default .filecontent > div.ext.flac, .wpfd-content-default .filecontent > div.ext.flac {
+  background-image: url(../../../assets/images/theme/flac.png);
+  color: transparent;
+}
+#et-boc .wpfd-content-default .filecontent > div.ext.flv, .wpfd-content-default .filecontent > div.ext.flv {
+  background-image: url(../../../assets/images/theme/flv.png);
+  color: transparent;
+}
+#et-boc .wpfd-content-default .filecontent > div.ext.gif, .wpfd-content-default .filecontent > div.ext.gif {
+  background-image: url(../../../assets/images/theme/gif.png);
+  color: transparent;
+}
+#et-boc .wpfd-content-default .filecontent > div.ext.html, .wpfd-content-default .filecontent > div.ext.html {
+  background-image: url(../../../assets/images/theme/html.png);
+  color: transparent;
+}
+#et-boc .wpfd-content-default .filecontent > div.ext.iso, .wpfd-content-default .filecontent > div.ext.iso {
+  background-image: url(../../../assets/images/theme/iso.png);
+  color: transparent;
+}
+#et-boc .wpfd-content-default .filecontent > div.ext.jpg, .wpfd-content-default .filecontent > div.ext.jpg {
+  background-image: url(../../../assets/images/theme/jpg.png);
+  color: transparent;
+}
+#et-boc .wpfd-content-default .filecontent > div.ext.gif, .wpfd-content-default .filecontent > div.ext.gif {
+  background-image: url(../../../assets/images/theme/gif.png);
+  color: transparent;
+}
+#et-boc .wpfd-content-default .filecontent > div.ext.mov, .wpfd-content-default .filecontent > div.ext.mov {
+  background-image: url(../../../assets/images/theme/mov.png);
+  color: transparent;
+}
+#et-boc .wpfd-content-default .filecontent > div.ext.mpg, .wpfd-content-default .filecontent > div.ext.mpg {
+  background-image: url(../../../assets/images/theme/mpg.png);
+  color: transparent;
+}
+#et-boc .wpfd-content-default .filecontent > div.ext.mpeg, .wpfd-content-default .filecontent > div.ext.mpeg {
+  background-image: url(../../../assets/images/theme/mpeg.png);
+  color: transparent;
+}
+#et-boc .wpfd-content-default .filecontent > div.ext.ogg, .wpfd-content-default .filecontent > div.ext.ogg {
+  background-image: url(../../../assets/images/theme/ogg.png);
+  color: transparent;
+}
+#et-boc .wpfd-content-default .filecontent > div.ext.mp3, .wpfd-content-default .filecontent > div.ext.mp3 {
+  background-image: url(../../../assets/images/theme/mp3.png);
+  color: transparent;
+}
+#et-boc .wpfd-content-default .filecontent > div.ext.mp4, .wpfd-content-default .filecontent > div.ext.mp4 {
+  background-image: url(../../../assets/images/theme/mp4.png);
+  color: transparent;
+}
+#et-boc .wpfd-content-default .filecontent > div.ext.mkv, .wpfd-content-default .filecontent > div.ext.mkv {
+  background-image: url(../../../assets/images/theme/mkv.png);
+  color: transparent;
+}
+#et-boc .wpfd-content-default .filecontent > div.ext.swf, .wpfd-content-default .filecontent > div.ext.swf {
+  background-image: url(../../../assets/images/theme/swf.png);
+  color: transparent;
+}
+#et-boc .wpfd-content-default .filecontent > div.ext.pdf, .wpfd-content-default .filecontent > div.ext.pdf {
+  background-image: url(../../../assets/images/theme/pdf.png);
+  color: transparent;
+}
+#et-boc .wpfd-content-default .filecontent > div.ext.php, .wpfd-content-default .filecontent > div.ext.php {
+  background-image: url(../../../assets/images/theme/php.png);
+  color: transparent;
+}
+#et-boc .wpfd-content-default .filecontent > div.ext.png, .wpfd-content-default .filecontent > div.ext.png {
+  background-image: url(../../../assets/images/theme/png.png);
+  color: transparent;
+}
+#et-boc .wpfd-content-default .filecontent > div.ext.ppt, #et-boc .wpfd-content-default .filecontent > div.ext.pptx, .wpfd-content-default .filecontent > div.ext.ppt, .wpfd-content-default .filecontent > div.ext.pptx {
+  background-image: url(../../../assets/images/theme/ppt.png);
+  color: transparent;
+}
+#et-boc .wpfd-content-default .filecontent > div.ext.psd, .wpfd-content-default .filecontent > div.ext.psd {
+  background-image: url(../../../assets/images/theme/psd.png);
+  color: transparent;
+}
+#et-boc .wpfd-content-default .filecontent > div.ext.raw, .wpfd-content-default .filecontent > div.ext.raw {
+  background-image: url(../../../assets/images/theme/raw.png);
+  color: transparent;
+}
+#et-boc .wpfd-content-default .filecontent > div.ext.sql, .wpfd-content-default .filecontent > div.ext.sql {
+  background-image: url(../../../assets/images/theme/sql.png);
+  color: transparent;
+}
+#et-boc .wpfd-content-default .filecontent > div.ext.svg, .wpfd-content-default .filecontent > div.ext.svg {
+  background-image: url(../../../assets/images/theme/svg.png);
+  color: transparent;
+}
+#et-boc .wpfd-content-default .filecontent > div.ext.txt, .wpfd-content-default .filecontent > div.ext.txt {
+  background-image: url(../../../assets/images/theme/txt.png);
+  color: transparent;
+}
+#et-boc .wpfd-content-default .filecontent > div.ext.wav, .wpfd-content-default .filecontent > div.ext.wav {
+  background-image: url(../../../assets/images/theme/wav.png);
+  color: transparent;
+}
+#et-boc .wpfd-content-default .filecontent > div.ext.wmv, .wpfd-content-default .filecontent > div.ext.wmv {
+  background-image: url(../../../assets/images/theme/wmv.png);
+  color: transparent;
+}
+#et-boc .wpfd-content-default .filecontent > div.ext.xls, .wpfd-content-default .filecontent > div.ext.xls {
+  background-image: url(../../../assets/images/theme/xls.png);
+  color: transparent;
+}
+#et-boc .wpfd-content-default .filecontent > div.ext.xlsx, .wpfd-content-default .filecontent > div.ext.xlsx {
+  background-image: url(../../../assets/images/theme/xlsx.png);
+  color: transparent;
+}
+#et-boc .wpfd-content-default .filecontent > div.ext.xml, .wpfd-content-default .filecontent > div.ext.xml {
+  background-image: url(../../../assets/images/theme/xml.png);
+  color: transparent;
+}
+#et-boc .wpfd-content-default .filecontent > div.ext.zip, .wpfd-content-default .filecontent > div.ext.zip {
+  background-image: url(../../../assets/images/theme/zip.png);
+  color: transparent;
+}
+#et-boc .wpfd-content-default .filecontent > div.ext.rar, .wpfd-content-default .filecontent > div.ext.rar {
+  background-image: url(../../../assets/images/theme/rar.png);
+  color: transparent;
+}
+#et-boc .wpfd-content-default .filecontent > div.ext.exe, .wpfd-content-default .filecontent > div.ext.exe {
+  background-image: url(../../../assets/images/theme/exe.png);
+  color: transparent;
+}
+#et-boc .wpfd-content-default .filecontent > div.ext .txt, .wpfd-content-default .filecontent > div.ext .txt {
+  position: absolute;
+  top: 2.6666666667em;
+  left: 0.3888888889em;
+  display: block;
+  width: 1.9444444444em;
+  font-size: 0.9444444444em;
+  font-weight: bold;
+  line-height: 0.8888888889em;
+  text-align: center;
+  letter-spacing: -1px;
+  text-transform: uppercase;
+  font-family: arial, helvetica, sans-serif !important;
+}
+#et-boc .wpfd-content-default .filecontent > div > img, .wpfd-content-default .filecontent > div > img {
+  width: 2.7777777778em;
+  margin-right: 0.8333333333em;
+  float: left;
+  position: relative;
+}
+
+@media only screen and (max-width: 762px) and (min-width: 641px) {
+  #et-boc .wpfd-content-default .wpfd_list .file,
+.wpfd-content-default .wpfd_list .file {
+    display: block;
+    flex: unset;
+  }
+}
+@media only screen and (max-width: 720px) and (min-width: 300px) {
+  #et-boc .wpfd-content-default .wpfd_list .file,
+.wpfd-content-default .wpfd_list .file {
+    width: auto;
+  }
+}
+@media only screen and (max-width: 420px) {
+  #et-boc .wpfd-content-default .wpfd_list .file,
+.wpfd-content-default .wpfd_list .file {
+    display: block;
+    width: auto;
+    max-width: 100%;
+    box-sizing: border-box;
+  }
+}
+#et-boc .wpfd-content-default .wpfd_list .file .filecontent,
+.wpfd-content-default .wpfd_list .file .filecontent {
+  margin-left: 0;
+  width: 70%;
+}
+@media only screen and (max-width: 762px) and (min-width: 641px) {
+  #et-boc .wpfd-content-default .wpfd_list .file .filecontent,
+.wpfd-content-default .wpfd_list .file .filecontent {
+    width: 100%;
+  }
+}
+@media only screen and (max-width: 400px) {
+  #et-boc .wpfd-content-default .wpfd_list .file .filecontent,
+.wpfd-content-default .wpfd_list .file .filecontent {
+    width: 100%;
+  }
+}
+#et-boc .wpfd-content-default .wpfd_list .file .file-right,
+.wpfd-content-default .wpfd_list .file .file-right {
+  margin: 0 auto;
+  text-align: center;
+  width: 43%;
+  min-width: 115px;
+  padding-left: 5px;
+}
+@media only screen and (max-width: 762px) and (min-width: 641px) {
+  #et-boc .wpfd-content-default .wpfd_list .file .file-right,
+.wpfd-content-default .wpfd_list .file .file-right {
+    padding-top: 0.5555555556em;
+    width: 100%;
+    clear: both;
+  }
+}
+@media only screen and (max-width: 420px) {
+  #et-boc .wpfd-content-default .wpfd_list .file .file-right,
+.wpfd-content-default .wpfd_list .file .file-right {
+    padding-top: 0.5555555556em;
+    padding-bottom: 1.1111111111em;
+    width: 100%;
+    clear: both;
+  }
+}
+@media screen and (min-width: 768px) {
+  #et-boc .wpfd-content-default .wpfd_list .file .file-right .downloadlink,
+.wpfd-content-default .wpfd_list .file .file-right .downloadlink {
+    margin: 23px 0 5px 0;
+  }
+}
+#et-boc .wpfd-content-default .wpfd_list .file .file-right .openlink,
+.wpfd-content-default .wpfd_list .file .file-right .openlink {
+  margin-top: 10px;
+}
+#et-boc .wpfd-content-default .wpfd_list .file .openlink img,
+.wpfd-content-default .wpfd_list .file .openlink img {
+  margin: auto;
+}
+#et-boc .wpfd-content-default .wpfd_list .file .downloadlink:hover,
+.wpfd-content-default .wpfd_list .file .downloadlink:hover {
+  box-shadow: 1px 1px 0.6666666667em #ccc;
+}
+#et-boc .wpfd-content-default .wpfd_list .file h3,
+.wpfd-content-default .wpfd_list .file h3 {
+  font-size: 1.2em;
+  line-height: 1.2222222222em;
+  padding-top: 0;
+  margin: 0 0 0.5555555556em 0;
+  clear: none;
+  word-wrap: break-word;
+  text-transform: none;
+  overflow: hidden;
+}
+#et-boc .wpfd-content-default .wpfd_list .file h3 a,
+.wpfd-content-default .wpfd_list .file h3 a {
+  font-weight: bold;
+  font-stretch: normal;
+  font-style: normal;
+  letter-spacing: normal;
+  text-align: left;
+  color: #808080;
+  text-transform: none;
+  vertical-align: text-top;
+  font-size: 16px;
+  line-height: 16px;
+}
+#et-boc .wpfd-content-default .wpfd_list .file .file-xinfo,
+.wpfd-content-default .wpfd_list .file .file-xinfo {
+  margin-left: 5em;
+  text-transform: none;
+  overflow: hidden;
+  font-size: 1em;
+  font-weight: normal;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.21;
+  letter-spacing: normal;
+  text-align: left;
+  color: #999999;
+  padding: 15px 0 0 25px;
+}
+@media screen and (max-width: 420px) {
+  #et-boc .wpfd-content-default .wpfd_list .file .file-xinfo,
+.wpfd-content-default .wpfd_list .file .file-xinfo {
+    margin-left: 0;
+  }
+}
+#et-boc .wpfd-content-default .wpfd_list .file .file-xinfo .file-desc,
+.wpfd-content-default .wpfd_list .file .file-xinfo .file-desc {
+  margin: -15px 0 15px 0;
+}
+#et-boc .wpfd-content-default .wpfd_list .file .file-xinfo .file-desc p,
+.wpfd-content-default .wpfd_list .file .file-xinfo .file-desc p {
+  margin: 0;
+}
+#et-boc .wpfd-content-default .wpfd_list .file .file-xinfo .file-size,
+#et-boc .wpfd-content-default .wpfd_list .file .file-xinfo .file-hits,
+#et-boc .wpfd-content-default .wpfd_list .file .file-xinfo .file-dated,
+.wpfd-content-default .wpfd_list .file .file-xinfo .file-size,
+.wpfd-content-default .wpfd_list .file .file-xinfo .file-hits,
+.wpfd-content-default .wpfd_list .file .file-xinfo .file-dated {
+  margin: 3px 0;
+}
+#et-boc .wpfd-content-default .wpfd_list .file .file-xinfo > div > span,
+.wpfd-content-default .wpfd_list .file .file-xinfo > div > span {
+  min-width: 85px;
+  margin: 0 5px 0 0;
+  display: inline-block;
+  font-size: 1em;
+}
+#et-boc .wpfd-content-default .wpfd_list .file .filecontent,
+.wpfd-content-default .wpfd_list .file .filecontent {
+  font-size: 1em;
+  line-height: 1.2;
+}
+#et-boc .wpfd-content-default .wpfd_list .file .filecontent h3,
+.wpfd-content-default .wpfd_list .file .filecontent h3 {
+  padding: 0 0 0 25px;
+  margin: 0 0 5px 0;
+  vertical-align: top;
+  position: relative;
+  font-size: 16px;
+  line-height: 16px;
+}
+#et-boc .wpfd-content-default .wpfd_list .file .filecontent h3 a:hover,
+.wpfd-content-default .wpfd_list .file .filecontent h3 a:hover {
+  box-shadow: none;
+}
+@media screen and (max-width: 420px) {
+  #et-boc .wpfd-content-default .wpfd_list .file .filecontent h3,
+.wpfd-content-default .wpfd_list .file .filecontent h3 {
+    width: 100%;
+  }
+}
+
+#et-boc .wpfd-container-default,
+.wpfd-container-default {
+  box-sizing: border-box;
+  padding: 0;
+  min-height: 50px;
+  -webkit-overflow-scrolling: touch;
+  position: relative;
+}
+#et-boc .wpfd-container-default .wpfd-categories,
+.wpfd-container-default .wpfd-categories {
+  padding: 0;
+}
+#et-boc .wpfd-container-default .wpfd-categories h2,
+.wpfd-container-default .wpfd-categories h2 {
+  font-weight: normal;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.18;
+  letter-spacing: normal;
+  text-align: left;
+  color: #b3b3b3;
+  text-transform: uppercase;
+  font-size: 1.25em;
+  padding: 0;
+  margin: 0 0 0 10px;
+}
+
+#et-boc .wpfd-container-default:not(.with_foldertree),
+.wpfd-container-default:not(.with_foldertree) {
+  width: 100%;
+}
+
+/* Single file */
+.wpfd-single-file {
+  display: inline-block;
+}
+.wpfd-single-file .wpfd-file-link {
+  border: medium none;
+  border-radius: 0;
+  transition: all 0.2s ease 0s;
+  float: left;
+  margin: 7px;
+  padding: 7px 25px;
+  color: #FFF;
+}
+.wpfd-single-file .wpfd-file-link:hover {
+  box-shadow: 1px 1px 12px #ccc;
+}
+.wpfd-single-file .wpfd-single-file-downloadicon {
+  margin-right: 10px;
+}
+.wpfd-single-file .wpfd-file-link a {
+  color: #FFF;
+  box-shadow: none;
+  text-decoration: none;
+  text-shadow: none;
+  border: none;
+  display: inline-block;
+  vertical-align: middle;
+}
+.wpfd-single-file .wpfd-file-link a:hover {
+  color: #FFF;
+}
+.wpfd-single-file .droptitle {
+  color: #fff;
+  font-weight: bold;
+}
+.wpfd-single-file .wpfd-file-link span.dropinfos {
+  font-weight: normal;
+  font-size: 0.8em;
+}
+.wpfd-single-file .wpfd_previewlink {
+  margin-top: 5px;
+  float: right;
+  font-size: 0.9em;
+}
+
+.wpfd-content-default .default-download-category.display-download-category {
+  display: none;
+}
+.wpfd-content-default .default-download-category:hover {
+  cursor: pointer;
+}
+
+.wpfd-content-default .head-category-default:before {
+  content: ">>";
+  font-size: 1em;
+  display: inline-block;
+  text-align: left;
+  text-transform: none;
+  vertical-align: middle;
+  margin: 0 5px 0 0;
+}
+
+@media (max-width: 720px) {
+  .wpfd-content-default.wpfd-content .wpfd-flex-container {
+    display: block;
+  }
+  .wpfd-content-default .wpfd_list {
+    -webkit-flex-direction: column;
+    -ms-flex-direction: column;
+    flex-direction: column;
+  }
+  .wpfd-content-default .wpfd_list .file {
+    -webkit-flex: 0 !important;
+    -ms-flex: 0 !important;
+    flex: 0 !important;
+  }
+}
+/* Right to left */
+.rtl .wpfd-content-default {
+  direction: rtl;
+}
+.rtl .wpfd-content-default .wpfd-categories .catlink span {
+  padding-right: 5px;
+  text-align: left;
+}
+.rtl .wpfd-content-default i.wpfd-preview, .rtl .wpfd-content-default i.wpfd-download {
+  padding-right: 5px;
+}
+.rtl .wpfd-content-default .filecontent > div.ext {
+  float: right;
+  margin-right: unset;
+  margin-left: 15px;
+}
+.rtl .wpfd-content-default .file .file-xinfo {
+  overflow: hidden;
+  margin-right: 65px;
+  margin-left: unset;
+}
+.rtl .wpfd-content-default .file .file-xinfo span {
+  float: right;
+  margin-left: 2px;
+}
+.rtl .wpfd-content-default .backcategory {
+  float: none;
+  right: unset;
+  left: 10px;
+}
+.rtl .wpfd-content-default .backcategory .zmdi-chevron-left {
+  -moz-transform: scaleX(-1);
+  -o-transform: scaleX(-1);
+  -webkit-transform: scaleX(-1);
+  transform: scale(-1);
+  margin-left: 3px;
+}
+.rtl .wpfd-content-default i.zmdi, .rtl .wpfd-content-default .zmdi-folder, .rtl .wpfd-content-default .zmdi-folder-open {
+  -moz-transform: scaleX(-1);
+  -o-transform: scaleX(-1);
+  -webkit-transform: scaleX(-1);
+  transform: scaleX(-1);
+  padding-left: 5px;
+}
+.rtl .wpfd-content-default .icon-open-close {
+  -moz-transform: scaleX(-1);
+  -o-transform: scaleX(-1);
+  -webkit-transform: scaleX(-1);
+  transform: scaleX(-1);
+  float: right;
+}
+.rtl .wpfd-content-default ul.jaofiletree:first-child {
+  margin-right: -10px !important;
+  margin-left: unset !important;
+}
+.rtl .wpfd-content-default ul.jaofiletree li {
+  padding-right: 10px !important;
+  padding-left: unset !important;
+}
+
+/*# sourceMappingURL=style.css.map */

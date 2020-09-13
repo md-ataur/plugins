@@ -1,0 +1,954 @@
+@charset "UTF-8";
+.wpfd-button {
+  background-color: transparent;
+  color: #000;
+  padding: 10px 15px;
+  min-width: 150px;
+  border: 1px solid #9fabba;
+  text-transform: uppercase;
+  display: inline-block;
+  text-decoration: none;
+  cursor: pointer;
+  text-align: center;
+  letter-spacing: 2px;
+  transition: all ease 0.5s;
+  vertical-align: middle;
+  -webkit-border-radius: 100px;
+  -moz-border-radius: 100px;
+  border-radius: 100px;
+  font-size: 14px;
+}
+.wpfd-button:focus {
+  outline: none;
+}
+.wpfd-button:hover {
+  -webkit-box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12);
+  -moz-box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12);
+  box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12);
+}
+.wpfd-button.orange-button {
+  background-color: #ff8726;
+  color: #fff;
+  border-color: #ff8726;
+}
+.wpfd-button.orange-outline-button {
+  background-color: #fff;
+  color: #ff8726;
+  border-color: #ff8726;
+}
+
+.wpfd-material-button {
+  border: none;
+  outline: none;
+  padding: 10px 20px;
+  text-transform: uppercase;
+  cursor: pointer;
+  font-size: 14px;
+  background-color: #2196f3;
+  color: #fff;
+}
+.wpfd-material-button:hover {
+  -webkit-box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12);
+  -moz-box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12);
+  box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12);
+}
+
+.wpfd-category-block, .wpfd-file-block {
+  z-index: 21 !important;
+}
+.wpfd-category-block .wpfd-category-search,
+.wpfd-category-block .wpfd-file-search, .wpfd-file-block .wpfd-category-search,
+.wpfd-file-block .wpfd-file-search {
+  display: flex;
+  flex-direction: row;
+  padding: 14px;
+  background-color: #f8f9f9;
+  font-size: 13px;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
+}
+.wpfd-category-block .wpfd-category-search label,
+.wpfd-category-block .wpfd-file-search label, .wpfd-file-block .wpfd-category-search label,
+.wpfd-file-block .wpfd-file-search label {
+  display: flex;
+  align-items: center;
+  margin-right: 8px;
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+.wpfd-category-block .wpfd-category-search label .dashicon,
+.wpfd-category-block .wpfd-file-search label .dashicon, .wpfd-file-block .wpfd-category-search label .dashicon,
+.wpfd-file-block .wpfd-file-search label .dashicon {
+  margin-right: 8px;
+}
+.wpfd-category-block .wpfd-category-search textarea, .wpfd-category-block .wpfd-category-search input,
+.wpfd-category-block .wpfd-file-search textarea,
+.wpfd-category-block .wpfd-file-search input, .wpfd-file-block .wpfd-category-search textarea, .wpfd-file-block .wpfd-category-search input,
+.wpfd-file-block .wpfd-file-search textarea,
+.wpfd-file-block .wpfd-file-search input {
+  overflow: hidden;
+  overflow-wrap: break-word;
+  resize: none;
+  height: 35px;
+  background: #fff;
+  width: 100%;
+}
+.wpfd-category-block .wpfd-selected-category-name,
+.wpfd-category-block .wpfd-selected-file-name, .wpfd-file-block .wpfd-selected-category-name,
+.wpfd-file-block .wpfd-selected-file-name {
+  background: #f8f9f9;
+  text-align: left;
+  font-size: 14px;
+  font-weight: bold;
+  line-height: 20px;
+  padding: 30px 14px;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
+}
+.wpfd-category-block .wpfd-selected-category-name span,
+.wpfd-category-block .wpfd-selected-file-name span, .wpfd-file-block .wpfd-selected-category-name span,
+.wpfd-file-block .wpfd-selected-file-name span {
+  margin-left: 4px;
+  font-weight: bold;
+}
+.wpfd-category-block .categories-dropdown, .wpfd-file-block .categories-dropdown {
+  display: block;
+  position: absolute;
+  top: 49px;
+  left: 0px;
+  padding: 5px;
+  width: 100%;
+  max-height: 200px;
+  background: #fff;
+  z-index: 999;
+  overflow: auto;
+  font-weight: 600;
+  box-shadow: 0 0 15px -5px #000;
+}
+.wpfd-category-block .categories-dropdown ul, .wpfd-file-block .categories-dropdown ul {
+  list-style: none !important;
+  margin: 0 !important;
+}
+.wpfd-category-block .categories-dropdown li:hover, .wpfd-file-block .categories-dropdown li:hover {
+  cursor: pointer;
+}
+.wpfd-category-block .categories-dropdown .wpfd-category .wpfd-toggle-expand, .wpfd-file-block .categories-dropdown .wpfd-category .wpfd-toggle-expand {
+  height: 22px;
+}
+.wpfd-category-block .wpfd-browse-files, .wpfd-file-block .wpfd-browse-files {
+  margin: auto 5px;
+  padding: 0px 13px;
+  height: 35px;
+}
+.wpfd-category-block .wpfd-browse-files.ju-material-button, .wpfd-file-block .wpfd-browse-files.ju-material-button {
+  -webkit-border-radius: 0;
+  -moz-border-radius: 0;
+  border-radius: 0;
+}
+.wpfd-category-block .wpfd-browse-files.ju-material-button:hover, .wpfd-category-block .wpfd-browse-files.ju-material-button:focus:enabled, .wpfd-file-block .wpfd-browse-files.ju-material-button:hover, .wpfd-file-block .wpfd-browse-files.ju-material-button:focus:enabled {
+  background-color: #2196f3;
+  -webkit-box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12);
+  -moz-box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12);
+  box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12);
+  color: #fff;
+}
+
+.wpfd-modal {
+  width: unset;
+}
+
+.wpfd-modal-content {
+  display: flex;
+  flex-flow: row wrap;
+  width: 80vw;
+}
+.wpfd-modal-content .wpfd-modal-left-panel, .wpfd-modal-content .wpfd-modal-right-panel {
+  flex: 1;
+}
+.wpfd-modal-content .wpfd-modal-left-panel {
+  order: 1;
+  flex-basis: 330px;
+  max-width: 330px;
+}
+.wpfd-modal-content .wpfd-modal-left-panel .categories-dropdown {
+  overflow-y: auto;
+}
+.wpfd-modal-content .wpfd-modal-left-panel .categories-dropdown ul {
+  margin: 0;
+}
+.wpfd-modal-content .wpfd-modal-left-panel .categories-dropdown ul li {
+  cursor: pointer;
+}
+.wpfd-modal-content .wpfd-modal-right-panel {
+  order: 2;
+  flex-basis: calc(100% - 340px);
+  padding: 25px;
+  background: #f3f6fa;
+  position: relative;
+}
+
+.wpfd-category {
+  color: #404852;
+  padding: 5px 0;
+  margin: 0;
+  white-space: nowrap;
+}
+.wpfd-category:hover, .wpfd-category.active {
+  background: rgba(34, 145, 240, 0.1);
+  color: #2291f0;
+}
+.wpfd-category:hover .dashicon, .wpfd-category.active .dashicon {
+  fill: #2291f0;
+}
+.wpfd-category .wpfd-category-name {
+  cursor: pointer;
+  vertical-align: sub;
+  padding-left: 5px;
+}
+.wpfd-category .wpfd-category-count {
+  float: right;
+  padding-right: 15px;
+  vertical-align: sub;
+}
+.wpfd-category .wpfd-toggle-expand {
+  vertical-align: middle;
+  display: inline-block;
+  width: 14px;
+  height: 17px;
+  cursor: pointer;
+  position: relative;
+}
+.wpfd-category .wpfd-toggle-expand:after {
+  content: "";
+  font-family: "dashicons";
+}
+.wpfd-category.collapsed .wpfd-toggle-expand:after {
+  content: "";
+  font-family: "dashicons";
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+}
+.wpfd-category .dashicon {
+  vertical-align: middle;
+  width: 20px;
+  fill: #888888;
+}
+
+.wpfd-nothing-found {
+  width: 100%;
+  height: 100px;
+  margin: auto;
+  font-size: 2em;
+  text-align: center;
+  display: grid;
+  align-items: center;
+  color: #6d6d6d;
+}
+
+.wpfd-files-wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  margin: 0;
+}
+.wpfd-files-wrapper .wpfd-file {
+  margin: 10px;
+  flex: calc(50% - 60px);
+  max-width: 300px;
+  position: relative;
+  background: #fff;
+  padding: 20px;
+  flex-grow: unset;
+  -webkit-border-radius: 4px;
+  -moz-border-radius: 4px;
+  border-radius: 4px;
+  -webkit-box-shadow: 8px 13px 29px -24px #111;
+  -moz-box-shadow: 8px 13px 29px -24px #111;
+  box-shadow: 8px 13px 29px -24px #111;
+  -webkit-box-sizing: content-box;
+  -moz-box-sizing: content-box;
+  box-sizing: content-box;
+}
+.wpfd-files-wrapper .wpfd-file .ext {
+  display: block;
+  float: left;
+  width: 50px;
+  height: 70px;
+  background: #485563;
+  background: -moz-linear-gradient(-45deg, #29323c 0%, #485563 100%);
+  background: -webkit-linear-gradient(-45deg, #29323c 0%, #485563 100%);
+  background: linear-gradient(149deg, #29323c 0%, #485563 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr="#29323c", endColorstr="#485563",GradientType=1 );
+  -webkit-border-radius: 4px;
+  -moz-border-radius: 4px;
+  border-radius: 4px;
+  position: relative;
+}
+.wpfd-files-wrapper .wpfd-file .ext .txt {
+  display: block;
+  position: absolute;
+  right: 0;
+  left: 0;
+  color: white;
+  text-align: center;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  font-weight: bold;
+  font-size: 1em;
+  top: 50%;
+  transform: translateY(-50%);
+}
+.wpfd-files-wrapper .wpfd-file .ext.doc {
+  background: #00d2ff;
+  background: -moz-linear-gradient(-45deg, #928dab 0%, #00d2ff 100%);
+  background: -webkit-linear-gradient(-45deg, #928dab 0%, #00d2ff 100%);
+  background: linear-gradient(149deg, #928dab 0%, #00d2ff 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr="#928dab", endColorstr="#00d2ff",GradientType=1 );
+}
+.wpfd-files-wrapper .wpfd-file .ext.docx {
+  background: #00d2ff;
+  background: -moz-linear-gradient(-45deg, #928dab 0%, #00d2ff 100%);
+  background: -webkit-linear-gradient(-45deg, #928dab 0%, #00d2ff 100%);
+  background: linear-gradient(149deg, #928dab 0%, #00d2ff 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr="#928dab", endColorstr="#00d2ff",GradientType=1 );
+}
+.wpfd-files-wrapper .wpfd-file .ext.odt {
+  background: #00d2ff;
+  background: -moz-linear-gradient(-45deg, #928dab 0%, #00d2ff 100%);
+  background: -webkit-linear-gradient(-45deg, #928dab 0%, #00d2ff 100%);
+  background: linear-gradient(149deg, #928dab 0%, #00d2ff 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr="#928dab", endColorstr="#00d2ff",GradientType=1 );
+}
+.wpfd-files-wrapper .wpfd-file .ext.pages {
+  background: #00d2ff;
+  background: -moz-linear-gradient(-45deg, #928dab 0%, #00d2ff 100%);
+  background: -webkit-linear-gradient(-45deg, #928dab 0%, #00d2ff 100%);
+  background: linear-gradient(149deg, #928dab 0%, #00d2ff 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr="#928dab", endColorstr="#00d2ff",GradientType=1 );
+}
+.wpfd-files-wrapper .wpfd-file .ext.ace {
+  background: #11998e;
+  background: -moz-linear-gradient(-45deg, #38ef7d 0%, #11998e 100%);
+  background: -webkit-linear-gradient(-45deg, #38ef7d 0%, #11998e 100%);
+  background: linear-gradient(149deg, #38ef7d 0%, #11998e 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr="#38ef7d", endColorstr="#11998e",GradientType=1 );
+}
+.wpfd-files-wrapper .wpfd-file .ext.bz2 {
+  background: #11998e;
+  background: -moz-linear-gradient(-45deg, #38ef7d 0%, #11998e 100%);
+  background: -webkit-linear-gradient(-45deg, #38ef7d 0%, #11998e 100%);
+  background: linear-gradient(149deg, #38ef7d 0%, #11998e 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr="#38ef7d", endColorstr="#11998e",GradientType=1 );
+}
+.wpfd-files-wrapper .wpfd-file .ext.gz {
+  background: #11998e;
+  background: -moz-linear-gradient(-45deg, #38ef7d 0%, #11998e 100%);
+  background: -webkit-linear-gradient(-45deg, #38ef7d 0%, #11998e 100%);
+  background: linear-gradient(149deg, #38ef7d 0%, #11998e 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr="#38ef7d", endColorstr="#11998e",GradientType=1 );
+}
+.wpfd-files-wrapper .wpfd-file .ext.rar {
+  background: #11998e;
+  background: -moz-linear-gradient(-45deg, #38ef7d 0%, #11998e 100%);
+  background: -webkit-linear-gradient(-45deg, #38ef7d 0%, #11998e 100%);
+  background: linear-gradient(149deg, #38ef7d 0%, #11998e 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr="#38ef7d", endColorstr="#11998e",GradientType=1 );
+}
+.wpfd-files-wrapper .wpfd-file .ext.tgz {
+  background: #11998e;
+  background: -moz-linear-gradient(-45deg, #38ef7d 0%, #11998e 100%);
+  background: -webkit-linear-gradient(-45deg, #38ef7d 0%, #11998e 100%);
+  background: linear-gradient(149deg, #38ef7d 0%, #11998e 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr="#38ef7d", endColorstr="#11998e",GradientType=1 );
+}
+.wpfd-files-wrapper .wpfd-file .ext.zip {
+  background: #11998e;
+  background: -moz-linear-gradient(-45deg, #38ef7d 0%, #11998e 100%);
+  background: -webkit-linear-gradient(-45deg, #38ef7d 0%, #11998e 100%);
+  background: linear-gradient(149deg, #38ef7d 0%, #11998e 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr="#38ef7d", endColorstr="#11998e",GradientType=1 );
+}
+.wpfd-files-wrapper .wpfd-file .ext.dmg {
+  background: #c21500;
+  background: -moz-linear-gradient(-45deg, #ffc500 0%, #c21500 100%);
+  background: -webkit-linear-gradient(-45deg, #ffc500 0%, #c21500 100%);
+  background: linear-gradient(149deg, #ffc500 0%, #c21500 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr="#ffc500", endColorstr="#c21500",GradientType=1 );
+}
+.wpfd-files-wrapper .wpfd-file .ext.html {
+  background: #ffe000;
+  background: -moz-linear-gradient(-45deg, #799f0c 0%, #ffe000 100%);
+  background: -webkit-linear-gradient(-45deg, #799f0c 0%, #ffe000 100%);
+  background: linear-gradient(149deg, #799f0c 0%, #ffe000 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr="#799f0c", endColorstr="#ffe000",GradientType=1 );
+}
+.wpfd-files-wrapper .wpfd-file .ext.key {
+  background: #ff00cc;
+  background: -moz-linear-gradient(-45deg, #333399 0%, #ff00cc 100%);
+  background: -webkit-linear-gradient(-45deg, #333399 0%, #ff00cc 100%);
+  background: linear-gradient(149deg, #333399 0%, #ff00cc 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr="#333399", endColorstr="#ff00cc",GradientType=1 );
+}
+.wpfd-files-wrapper .wpfd-file .ext.keynote {
+  background: #ff00cc;
+  background: -moz-linear-gradient(-45deg, #333399 0%, #ff00cc 100%);
+  background: -webkit-linear-gradient(-45deg, #333399 0%, #ff00cc 100%);
+  background: linear-gradient(149deg, #333399 0%, #ff00cc 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr="#333399", endColorstr="#ff00cc",GradientType=1 );
+}
+.wpfd-files-wrapper .wpfd-file .ext.odp {
+  background: #ff00cc;
+  background: -moz-linear-gradient(-45deg, #333399 0%, #ff00cc 100%);
+  background: -webkit-linear-gradient(-45deg, #333399 0%, #ff00cc 100%);
+  background: linear-gradient(149deg, #333399 0%, #ff00cc 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr="#333399", endColorstr="#ff00cc",GradientType=1 );
+}
+.wpfd-files-wrapper .wpfd-file .ext.pps {
+  background: #ff00cc;
+  background: -moz-linear-gradient(-45deg, #333399 0%, #ff00cc 100%);
+  background: -webkit-linear-gradient(-45deg, #333399 0%, #ff00cc 100%);
+  background: linear-gradient(149deg, #333399 0%, #ff00cc 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr="#333399", endColorstr="#ff00cc",GradientType=1 );
+}
+.wpfd-files-wrapper .wpfd-file .ext.ppt {
+  background: #ff00cc;
+  background: -moz-linear-gradient(-45deg, #333399 0%, #ff00cc 100%);
+  background: -webkit-linear-gradient(-45deg, #333399 0%, #ff00cc 100%);
+  background: linear-gradient(149deg, #333399 0%, #ff00cc 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr="#333399", endColorstr="#ff00cc",GradientType=1 );
+}
+.wpfd-files-wrapper .wpfd-file .ext.pptx {
+  background: #ff00cc;
+  background: -moz-linear-gradient(-45deg, #333399 0%, #ff00cc 100%);
+  background: -webkit-linear-gradient(-45deg, #333399 0%, #ff00cc 100%);
+  background: linear-gradient(149deg, #333399 0%, #ff00cc 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr="#333399", endColorstr="#ff00cc",GradientType=1 );
+}
+.wpfd-files-wrapper .wpfd-file .ext.ppt {
+  background: #ff00cc;
+  background: -moz-linear-gradient(-45deg, #333399 0%, #ff00cc 100%);
+  background: -webkit-linear-gradient(-45deg, #333399 0%, #ff00cc 100%);
+  background: linear-gradient(149deg, #333399 0%, #ff00cc 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr="#333399", endColorstr="#ff00cc",GradientType=1 );
+}
+.wpfd-files-wrapper .wpfd-file .ext.ods {
+  background: #3ca55c;
+  background: -moz-linear-gradient(-45deg, #b5ac49 0%, #3ca55c 100%);
+  background: -webkit-linear-gradient(-45deg, #b5ac49 0%, #3ca55c 100%);
+  background: linear-gradient(149deg, #b5ac49 0%, #3ca55c 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr="#b5ac49", endColorstr="#3ca55c",GradientType=1 );
+}
+.wpfd-files-wrapper .wpfd-file .ext.xls {
+  background: #3ca55c;
+  background: -moz-linear-gradient(-45deg, #b5ac49 0%, #3ca55c 100%);
+  background: -webkit-linear-gradient(-45deg, #b5ac49 0%, #3ca55c 100%);
+  background: linear-gradient(149deg, #b5ac49 0%, #3ca55c 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr="#b5ac49", endColorstr="#3ca55c",GradientType=1 );
+}
+.wpfd-files-wrapper .wpfd-file .ext.xlsx {
+  background: #3ca55c;
+  background: -moz-linear-gradient(-45deg, #b5ac49 0%, #3ca55c 100%);
+  background: -webkit-linear-gradient(-45deg, #b5ac49 0%, #3ca55c 100%);
+  background: linear-gradient(149deg, #b5ac49 0%, #3ca55c 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr="#b5ac49", endColorstr="#3ca55c",GradientType=1 );
+}
+.wpfd-files-wrapper .wpfd-file .ext.csv {
+  background: #3ca55c;
+  background: -moz-linear-gradient(-45deg, #b5ac49 0%, #3ca55c 100%);
+  background: -webkit-linear-gradient(-45deg, #b5ac49 0%, #3ca55c 100%);
+  background: linear-gradient(149deg, #b5ac49 0%, #3ca55c 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr="#b5ac49", endColorstr="#3ca55c",GradientType=1 );
+}
+.wpfd-files-wrapper .wpfd-file .ext.txt {
+  background: #3E5151;
+  background: -moz-linear-gradient(-45deg, #DECBA4 0%, #3E5151 100%);
+  background: -webkit-linear-gradient(-45deg, #DECBA4 0%, #3E5151 100%);
+  background: linear-gradient(149deg, #DECBA4 0%, #3E5151 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr="#DECBA4", endColorstr="#3E5151",GradientType=1 );
+}
+.wpfd-files-wrapper .wpfd-file .ext.rtf {
+  background: #3E5151;
+  background: -moz-linear-gradient(-45deg, #DECBA4 0%, #3E5151 100%);
+  background: -webkit-linear-gradient(-45deg, #DECBA4 0%, #3E5151 100%);
+  background: linear-gradient(149deg, #DECBA4 0%, #3E5151 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr="#DECBA4", endColorstr="#3E5151",GradientType=1 );
+}
+.wpfd-files-wrapper .wpfd-file .ext.tex {
+  background: #3E5151;
+  background: -moz-linear-gradient(-45deg, #DECBA4 0%, #3E5151 100%);
+  background: -webkit-linear-gradient(-45deg, #DECBA4 0%, #3E5151 100%);
+  background: linear-gradient(149deg, #DECBA4 0%, #3E5151 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr="#DECBA4", endColorstr="#3E5151",GradientType=1 );
+}
+.wpfd-files-wrapper .wpfd-file .ext.ttf {
+  background: #3E5151;
+  background: -moz-linear-gradient(-45deg, #DECBA4 0%, #3E5151 100%);
+  background: -webkit-linear-gradient(-45deg, #DECBA4 0%, #3E5151 100%);
+  background: linear-gradient(149deg, #DECBA4 0%, #3E5151 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr="#DECBA4", endColorstr="#3E5151",GradientType=1 );
+}
+.wpfd-files-wrapper .wpfd-file .ext.xml {
+  background: #606c88;
+  background: -moz-linear-gradient(-45deg, #3f4c6b 0%, #606c88 100%);
+  background: -webkit-linear-gradient(-45deg, #3f4c6b 0%, #606c88 100%);
+  background: linear-gradient(149deg, #3f4c6b 0%, #606c88 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr="#3f4c6b", endColorstr="#606c88",GradientType=1 );
+}
+.wpfd-files-wrapper .wpfd-file .ext.css {
+  background: #606c88;
+  background: -moz-linear-gradient(-45deg, #3f4c6b 0%, #606c88 100%);
+  background: -webkit-linear-gradient(-45deg, #3f4c6b 0%, #606c88 100%);
+  background: linear-gradient(149deg, #3f4c6b 0%, #606c88 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr="#3f4c6b", endColorstr="#606c88",GradientType=1 );
+}
+.wpfd-files-wrapper .wpfd-file .ext.pdf {
+  background: #333333;
+  background: -moz-linear-gradient(-45deg, #dd1818 0%, #333333 100%);
+  background: -webkit-linear-gradient(-45deg, #dd1818 0%, #333333 100%);
+  background: linear-gradient(149deg, #dd1818 0%, #333333 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr="#dd1818", endColorstr="#333333",GradientType=1 );
+}
+.wpfd-files-wrapper .wpfd-file .ext.bmp {
+  background: #4e54c8;
+  background: -moz-linear-gradient(-45deg, #8f94fb 0%, #4e54c8 100%);
+  background: -webkit-linear-gradient(-45deg, #8f94fb 0%, #4e54c8 100%);
+  background: linear-gradient(149deg, #8f94fb 0%, #4e54c8 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr="#8f94fb", endColorstr="#4e54c8",GradientType=1 );
+}
+.wpfd-files-wrapper .wpfd-file .ext.png {
+  background: #4e54c8;
+  background: -moz-linear-gradient(-45deg, #8f94fb 0%, #4e54c8 100%);
+  background: -webkit-linear-gradient(-45deg, #8f94fb 0%, #4e54c8 100%);
+  background: linear-gradient(149deg, #8f94fb 0%, #4e54c8 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr="#8f94fb", endColorstr="#4e54c8",GradientType=1 );
+}
+.wpfd-files-wrapper .wpfd-file .ext.gif {
+  background: #4e54c8;
+  background: -moz-linear-gradient(-45deg, #8f94fb 0%, #4e54c8 100%);
+  background: -webkit-linear-gradient(-45deg, #8f94fb 0%, #4e54c8 100%);
+  background: linear-gradient(149deg, #8f94fb 0%, #4e54c8 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr="#8f94fb", endColorstr="#4e54c8",GradientType=1 );
+}
+.wpfd-files-wrapper .wpfd-file .ext.exif {
+  background: #355C7D;
+  background: -moz-linear-gradient(-45deg, #C06C84 0%, #6C5B7B 50%, #355C7D 100%);
+  background: -webkit-linear-gradient(-45deg, #C06C84 0%, #6C5B7B 50%, #355C7D 100%);
+  background: linear-gradient(149deg, #C06C84 0%, #6C5B7B 50%, #355C7D 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr="#C06C84", endColorstr="#355C7D",GradientType=1 );
+}
+.wpfd-files-wrapper .wpfd-file .ext.tif {
+  background: #355C7D;
+  background: -moz-linear-gradient(-45deg, #C06C84 0%, #6C5B7B 50%, #355C7D 100%);
+  background: -webkit-linear-gradient(-45deg, #C06C84 0%, #6C5B7B 50%, #355C7D 100%);
+  background: linear-gradient(149deg, #C06C84 0%, #6C5B7B 50%, #355C7D 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr="#C06C84", endColorstr="#355C7D",GradientType=1 );
+}
+.wpfd-files-wrapper .wpfd-file .ext.tiff {
+  background: #355C7D;
+  background: -moz-linear-gradient(-45deg, #C06C84 0%, #6C5B7B 50%, #355C7D 100%);
+  background: -webkit-linear-gradient(-45deg, #C06C84 0%, #6C5B7B 50%, #355C7D 100%);
+  background: linear-gradient(149deg, #C06C84 0%, #6C5B7B 50%, #355C7D 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr="#C06C84", endColorstr="#355C7D",GradientType=1 );
+}
+.wpfd-files-wrapper .wpfd-file .ext.ico {
+  background: #355C7D;
+  background: -moz-linear-gradient(-45deg, #C06C84 0%, #6C5B7B 50%, #355C7D 100%);
+  background: -webkit-linear-gradient(-45deg, #C06C84 0%, #6C5B7B 50%, #355C7D 100%);
+  background: linear-gradient(149deg, #C06C84 0%, #6C5B7B 50%, #355C7D 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr="#C06C84", endColorstr="#355C7D",GradientType=1 );
+}
+.wpfd-files-wrapper .wpfd-file .ext.svg {
+  background: #355C7D;
+  background: -moz-linear-gradient(-45deg, #C06C84 0%, #6C5B7B 50%, #355C7D 100%);
+  background: -webkit-linear-gradient(-45deg, #C06C84 0%, #6C5B7B 50%, #355C7D 100%);
+  background: linear-gradient(149deg, #C06C84 0%, #6C5B7B 50%, #355C7D 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr="#C06C84", endColorstr="#355C7D",GradientType=1 );
+}
+.wpfd-files-wrapper .wpfd-file .ext.jpeg {
+  background: #108dc7;
+  background: -moz-linear-gradient(-45deg, #ef8e38 0%, #108dc7 100%);
+  background: -webkit-linear-gradient(-45deg, #ef8e38 0%, #108dc7 100%);
+  background: linear-gradient(149deg, #ef8e38 0%, #108dc7 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr="#ef8e38", endColorstr="#108dc7",GradientType=1 );
+}
+.wpfd-files-wrapper .wpfd-file .ext.jpg {
+  background: #108dc7;
+  background: -moz-linear-gradient(-45deg, #ef8e38 0%, #108dc7 100%);
+  background: -webkit-linear-gradient(-45deg, #ef8e38 0%, #108dc7 100%);
+  background: linear-gradient(149deg, #ef8e38 0%, #108dc7 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr="#ef8e38", endColorstr="#108dc7",GradientType=1 );
+}
+.wpfd-files-wrapper .wpfd-file .ext.psd {
+  background: #FC5C7D;
+  background: -moz-linear-gradient(-45deg, #6A82FB 0%, #FC5C7D 100%);
+  background: -webkit-linear-gradient(-45deg, #6A82FB 0%, #FC5C7D 100%);
+  background: linear-gradient(149deg, #6A82FB 0%, #FC5C7D 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr="#6A82FB", endColorstr="#FC5C7D",GradientType=1 );
+}
+.wpfd-files-wrapper .wpfd-file .ext.img {
+  background: #FC5C7D;
+  background: -moz-linear-gradient(-45deg, #6A82FB 0%, #FC5C7D 100%);
+  background: -webkit-linear-gradient(-45deg, #6A82FB 0%, #FC5C7D 100%);
+  background: linear-gradient(149deg, #6A82FB 0%, #FC5C7D 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr="#6A82FB", endColorstr="#FC5C7D",GradientType=1 );
+}
+.wpfd-files-wrapper .wpfd-file .ext.ai {
+  background: #FC5C7D;
+  background: -moz-linear-gradient(-45deg, #6A82FB 0%, #FC5C7D 100%);
+  background: -webkit-linear-gradient(-45deg, #6A82FB 0%, #FC5C7D 100%);
+  background: linear-gradient(149deg, #6A82FB 0%, #FC5C7D 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr="#6A82FB", endColorstr="#FC5C7D",GradientType=1 );
+}
+.wpfd-files-wrapper .wpfd-file .ext.dxf {
+  background: #FC5C7D;
+  background: -moz-linear-gradient(-45deg, #6A82FB 0%, #FC5C7D 100%);
+  background: -webkit-linear-gradient(-45deg, #6A82FB 0%, #FC5C7D 100%);
+  background: linear-gradient(149deg, #6A82FB 0%, #FC5C7D 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr="#6A82FB", endColorstr="#FC5C7D",GradientType=1 );
+}
+.wpfd-files-wrapper .wpfd-file .ext.avi {
+  background: #c94b4b;
+  background: -moz-linear-gradient(-45deg, #4b134f 0%, #c94b4b 100%);
+  background: -webkit-linear-gradient(-45deg, #4b134f 0%, #c94b4b 100%);
+  background: linear-gradient(149deg, #4b134f 0%, #c94b4b 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr="#4b134f", endColorstr="#c94b4b",GradientType=1 );
+}
+.wpfd-files-wrapper .wpfd-file .ext.flv {
+  background: #c94b4b;
+  background: -moz-linear-gradient(-45deg, #4b134f 0%, #c94b4b 100%);
+  background: -webkit-linear-gradient(-45deg, #4b134f 0%, #c94b4b 100%);
+  background: linear-gradient(149deg, #4b134f 0%, #c94b4b 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr="#4b134f", endColorstr="#c94b4b",GradientType=1 );
+}
+.wpfd-files-wrapper .wpfd-file .ext.mov {
+  background: #c94b4b;
+  background: -moz-linear-gradient(-45deg, #4b134f 0%, #c94b4b 100%);
+  background: -webkit-linear-gradient(-45deg, #4b134f 0%, #c94b4b 100%);
+  background: linear-gradient(149deg, #4b134f 0%, #c94b4b 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr="#4b134f", endColorstr="#c94b4b",GradientType=1 );
+}
+.wpfd-files-wrapper .wpfd-file .ext.mpeg {
+  background: #c94b4b;
+  background: -moz-linear-gradient(-45deg, #4b134f 0%, #c94b4b 100%);
+  background: -webkit-linear-gradient(-45deg, #4b134f 0%, #c94b4b 100%);
+  background: linear-gradient(149deg, #4b134f 0%, #c94b4b 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr="#4b134f", endColorstr="#c94b4b",GradientType=1 );
+}
+.wpfd-files-wrapper .wpfd-file .ext.m4v {
+  background: #c94b4b;
+  background: -moz-linear-gradient(-45deg, #4b134f 0%, #c94b4b 100%);
+  background: -webkit-linear-gradient(-45deg, #4b134f 0%, #c94b4b 100%);
+  background: linear-gradient(149deg, #4b134f 0%, #c94b4b 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr="#4b134f", endColorstr="#c94b4b",GradientType=1 );
+}
+.wpfd-files-wrapper .wpfd-file .ext.mkv {
+  background: #c94b4b;
+  background: -moz-linear-gradient(-45deg, #4b134f 0%, #c94b4b 100%);
+  background: -webkit-linear-gradient(-45deg, #4b134f 0%, #c94b4b 100%);
+  background: linear-gradient(149deg, #4b134f 0%, #c94b4b 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr="#4b134f", endColorstr="#c94b4b",GradientType=1 );
+}
+.wpfd-files-wrapper .wpfd-file .ext.mpg {
+  background: #c94b4b;
+  background: -moz-linear-gradient(-45deg, #4b134f 0%, #c94b4b 100%);
+  background: -webkit-linear-gradient(-45deg, #4b134f 0%, #c94b4b 100%);
+  background: linear-gradient(149deg, #4b134f 0%, #c94b4b 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr="#4b134f", endColorstr="#c94b4b",GradientType=1 );
+}
+.wpfd-files-wrapper .wpfd-file .ext.mp4 {
+  background: #c94b4b;
+  background: -moz-linear-gradient(-45deg, #4b134f 0%, #c94b4b 100%);
+  background: -webkit-linear-gradient(-45deg, #4b134f 0%, #c94b4b 100%);
+  background: linear-gradient(149deg, #4b134f 0%, #c94b4b 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr="#4b134f", endColorstr="#c94b4b",GradientType=1 );
+}
+.wpfd-files-wrapper .wpfd-file .ext.swf {
+  background: #c94b4b;
+  background: -moz-linear-gradient(-45deg, #4b134f 0%, #c94b4b 100%);
+  background: -webkit-linear-gradient(-45deg, #4b134f 0%, #c94b4b 100%);
+  background: linear-gradient(149deg, #4b134f 0%, #c94b4b 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr="#4b134f", endColorstr="#c94b4b",GradientType=1 );
+}
+.wpfd-files-wrapper .wpfd-file .ext.wmv {
+  background: #c94b4b;
+  background: -moz-linear-gradient(-45deg, #4b134f 0%, #c94b4b 100%);
+  background: -webkit-linear-gradient(-45deg, #4b134f 0%, #c94b4b 100%);
+  background: linear-gradient(149deg, #4b134f 0%, #c94b4b 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr="#4b134f", endColorstr="#c94b4b",GradientType=1 );
+}
+.wpfd-files-wrapper .wpfd-file .ext.rm {
+  background: #c94b4b;
+  background: -moz-linear-gradient(-45deg, #4b134f 0%, #c94b4b 100%);
+  background: -webkit-linear-gradient(-45deg, #4b134f 0%, #c94b4b 100%);
+  background: linear-gradient(149deg, #4b134f 0%, #c94b4b 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr="#4b134f", endColorstr="#c94b4b",GradientType=1 );
+}
+.wpfd-files-wrapper .wpfd-file .ext.mp3 {
+  background: #22c1c3;
+  background: -moz-linear-gradient(-45deg, #fdbb2d 0%, #22c1c3 100%);
+  background: -webkit-linear-gradient(-45deg, #fdbb2d 0%, #22c1c3 100%);
+  background: linear-gradient(149deg, #fdbb2d 0%, #22c1c3 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr="#fdbb2d", endColorstr="#22c1c3",GradientType=1 );
+}
+.wpfd-files-wrapper .wpfd-file .ext.mpa {
+  background: #22c1c3;
+  background: -moz-linear-gradient(-45deg, #fdbb2d 0%, #22c1c3 100%);
+  background: -webkit-linear-gradient(-45deg, #fdbb2d 0%, #22c1c3 100%);
+  background: linear-gradient(149deg, #fdbb2d 0%, #22c1c3 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr="#fdbb2d", endColorstr="#22c1c3",GradientType=1 );
+}
+.wpfd-files-wrapper .wpfd-file .ext.ogg {
+  background: #22c1c3;
+  background: -moz-linear-gradient(-45deg, #fdbb2d 0%, #22c1c3 100%);
+  background: -webkit-linear-gradient(-45deg, #fdbb2d 0%, #22c1c3 100%);
+  background: linear-gradient(149deg, #fdbb2d 0%, #22c1c3 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr="#fdbb2d", endColorstr="#22c1c3",GradientType=1 );
+}
+.wpfd-files-wrapper .wpfd-file .ext.aac {
+  background: #22c1c3;
+  background: -moz-linear-gradient(-45deg, #fdbb2d 0%, #22c1c3 100%);
+  background: -webkit-linear-gradient(-45deg, #fdbb2d 0%, #22c1c3 100%);
+  background: linear-gradient(149deg, #fdbb2d 0%, #22c1c3 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr="#fdbb2d", endColorstr="#22c1c3",GradientType=1 );
+}
+.wpfd-files-wrapper .wpfd-file .ext.flac {
+  background: #22c1c3;
+  background: -moz-linear-gradient(-45deg, #fdbb2d 0%, #22c1c3 100%);
+  background: -webkit-linear-gradient(-45deg, #fdbb2d 0%, #22c1c3 100%);
+  background: linear-gradient(149deg, #fdbb2d 0%, #22c1c3 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr="#fdbb2d", endColorstr="#22c1c3",GradientType=1 );
+}
+.wpfd-files-wrapper .wpfd-file .ext.mid {
+  background: #22c1c3;
+  background: -moz-linear-gradient(-45deg, #fdbb2d 0%, #22c1c3 100%);
+  background: -webkit-linear-gradient(-45deg, #fdbb2d 0%, #22c1c3 100%);
+  background: linear-gradient(149deg, #fdbb2d 0%, #22c1c3 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr="#fdbb2d", endColorstr="#22c1c3",GradientType=1 );
+}
+.wpfd-files-wrapper .wpfd-file .ext.aiff {
+  background: #22c1c3;
+  background: -moz-linear-gradient(-45deg, #fdbb2d 0%, #22c1c3 100%);
+  background: -webkit-linear-gradient(-45deg, #fdbb2d 0%, #22c1c3 100%);
+  background: linear-gradient(149deg, #fdbb2d 0%, #22c1c3 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr="#fdbb2d", endColorstr="#22c1c3",GradientType=1 );
+}
+.wpfd-files-wrapper .wpfd-file .ext.alac {
+  background: #22c1c3;
+  background: -moz-linear-gradient(-45deg, #fdbb2d 0%, #22c1c3 100%);
+  background: -webkit-linear-gradient(-45deg, #fdbb2d 0%, #22c1c3 100%);
+  background: linear-gradient(149deg, #fdbb2d 0%, #22c1c3 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr="#fdbb2d", endColorstr="#22c1c3",GradientType=1 );
+}
+.wpfd-files-wrapper .wpfd-file .ext.amr {
+  background: #22c1c3;
+  background: -moz-linear-gradient(-45deg, #fdbb2d 0%, #22c1c3 100%);
+  background: -webkit-linear-gradient(-45deg, #fdbb2d 0%, #22c1c3 100%);
+  background: linear-gradient(149deg, #fdbb2d 0%, #22c1c3 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr="#fdbb2d", endColorstr="#22c1c3",GradientType=1 );
+}
+.wpfd-files-wrapper .wpfd-file .ext.au {
+  background: #22c1c3;
+  background: -moz-linear-gradient(-45deg, #fdbb2d 0%, #22c1c3 100%);
+  background: -webkit-linear-gradient(-45deg, #fdbb2d 0%, #22c1c3 100%);
+  background: linear-gradient(149deg, #fdbb2d 0%, #22c1c3 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr="#fdbb2d", endColorstr="#22c1c3",GradientType=1 );
+}
+.wpfd-files-wrapper .wpfd-file .ext.cdda {
+  background: #22c1c3;
+  background: -moz-linear-gradient(-45deg, #fdbb2d 0%, #22c1c3 100%);
+  background: -webkit-linear-gradient(-45deg, #fdbb2d 0%, #22c1c3 100%);
+  background: linear-gradient(149deg, #fdbb2d 0%, #22c1c3 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr="#fdbb2d", endColorstr="#22c1c3",GradientType=1 );
+}
+.wpfd-files-wrapper .wpfd-file .ext.m3u {
+  background: #22c1c3;
+  background: -moz-linear-gradient(-45deg, #fdbb2d 0%, #22c1c3 100%);
+  background: -webkit-linear-gradient(-45deg, #fdbb2d 0%, #22c1c3 100%);
+  background: linear-gradient(149deg, #fdbb2d 0%, #22c1c3 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr="#fdbb2d", endColorstr="#22c1c3",GradientType=1 );
+}
+.wpfd-files-wrapper .wpfd-file .ext.m4a {
+  background: #22c1c3;
+  background: -moz-linear-gradient(-45deg, #fdbb2d 0%, #22c1c3 100%);
+  background: -webkit-linear-gradient(-45deg, #fdbb2d 0%, #22c1c3 100%);
+  background: linear-gradient(149deg, #fdbb2d 0%, #22c1c3 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr="#fdbb2d", endColorstr="#22c1c3",GradientType=1 );
+}
+.wpfd-files-wrapper .wpfd-file .ext.m4p {
+  background: #22c1c3;
+  background: -moz-linear-gradient(-45deg, #fdbb2d 0%, #22c1c3 100%);
+  background: -webkit-linear-gradient(-45deg, #fdbb2d 0%, #22c1c3 100%);
+  background: linear-gradient(149deg, #fdbb2d 0%, #22c1c3 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr="#fdbb2d", endColorstr="#22c1c3",GradientType=1 );
+}
+.wpfd-files-wrapper .wpfd-file .ext.pac {
+  background: #22c1c3;
+  background: -moz-linear-gradient(-45deg, #fdbb2d 0%, #22c1c3 100%);
+  background: -webkit-linear-gradient(-45deg, #fdbb2d 0%, #22c1c3 100%);
+  background: linear-gradient(149deg, #fdbb2d 0%, #22c1c3 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr="#fdbb2d", endColorstr="#22c1c3",GradientType=1 );
+}
+.wpfd-files-wrapper .wpfd-file .ext.ra {
+  background: #22c1c3;
+  background: -moz-linear-gradient(-45deg, #fdbb2d 0%, #22c1c3 100%);
+  background: -webkit-linear-gradient(-45deg, #fdbb2d 0%, #22c1c3 100%);
+  background: linear-gradient(149deg, #fdbb2d 0%, #22c1c3 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr="#fdbb2d", endColorstr="#22c1c3",GradientType=1 );
+}
+.wpfd-files-wrapper .wpfd-file .ext.wav {
+  background: #22c1c3;
+  background: -moz-linear-gradient(-45deg, #fdbb2d 0%, #22c1c3 100%);
+  background: -webkit-linear-gradient(-45deg, #fdbb2d 0%, #22c1c3 100%);
+  background: linear-gradient(149deg, #fdbb2d 0%, #22c1c3 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr="#fdbb2d", endColorstr="#22c1c3",GradientType=1 );
+}
+.wpfd-files-wrapper .wpfd-file .ext.wma {
+  background: #22c1c3;
+  background: -moz-linear-gradient(-45deg, #fdbb2d 0%, #22c1c3 100%);
+  background: -webkit-linear-gradient(-45deg, #fdbb2d 0%, #22c1c3 100%);
+  background: linear-gradient(149deg, #fdbb2d 0%, #22c1c3 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr="#fdbb2d", endColorstr="#22c1c3",GradientType=1 );
+}
+.wpfd-files-wrapper .wpfd-file .ext.asf {
+  background: #22c1c3;
+  background: -moz-linear-gradient(-45deg, #fdbb2d 0%, #22c1c3 100%);
+  background: -webkit-linear-gradient(-45deg, #fdbb2d 0%, #22c1c3 100%);
+  background: linear-gradient(149deg, #fdbb2d 0%, #22c1c3 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr="#fdbb2d", endColorstr="#22c1c3",GradientType=1 );
+}
+.wpfd-files-wrapper .wpfd-file .ext.vob {
+  background: #22c1c3;
+  background: -moz-linear-gradient(-45deg, #fdbb2d 0%, #22c1c3 100%);
+  background: -webkit-linear-gradient(-45deg, #fdbb2d 0%, #22c1c3 100%);
+  background: linear-gradient(149deg, #fdbb2d 0%, #22c1c3 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr="#fdbb2d", endColorstr="#22c1c3",GradientType=1 );
+}
+.wpfd-files-wrapper .wpfd-file .ext {
+  width: 50px;
+  height: 70px;
+}
+.wpfd-files-wrapper .wpfd-file .file_info {
+  display: block;
+  width: calc(100% - 70px);
+  margin: 0 10px;
+  color: #7296a8;
+  font-size: 11px;
+  float: left;
+}
+.wpfd-files-wrapper .wpfd-file .file_info:after {
+  clear: both;
+}
+.wpfd-files-wrapper .wpfd-file .file_info .file_title {
+  color: #404852;
+  font-size: 14px;
+  margin: 0;
+  overflow: hidden;
+  -ms-text-overflow: ellipsis;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  padding-bottom: 10px;
+  line-height: 1;
+}
+.wpfd-files-wrapper .wpfd-file .file_info span {
+  width: 100%;
+  display: block;
+}
+.wpfd-files-wrapper .wpfd-file .file_buttons {
+  width: 100%;
+  float: left;
+  margin-top: 10px;
+  display: grid;
+}
+.wpfd-files-wrapper .wpfd-file .file_buttons button.orange-outline-button {
+  padding: 5px 10px;
+  font-size: 15px;
+  text-transform: unset;
+  margin: 0 auto;
+  width: fit-content;
+  width: -moz-fit-content;
+}
+.wpfd-files-wrapper .wpfd-file .file_buttons button.orange-outline-button:hover, .wpfd-files-wrapper .wpfd-file .file_buttons button.orange-outline-button:focus:enabled {
+  background-color: #ff8726;
+  -webkit-box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12);
+  -moz-box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12);
+  box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12);
+  color: #fff;
+}
+
+.wpfd-loading-wrapper {
+  display: grid;
+  align-items: center;
+}
+.wpfd-loading-wrapper .wpfd-loading {
+  margin: 0 auto;
+  width: 70px;
+  height: 70px;
+}
+
+/* Animation */
+.wpfd-animation-enter {
+  opacity: 0;
+  transition: opacity 0.3s linear;
+}
+
+.wpfd-animation-enter.wpfd-animation-enter-active {
+  opacity: 1;
+  transition-delay: 0s;
+}
+
+.onedrive-icon, .googleDrive-icon, .onedrive-business-icon {
+  width: 20px;
+  height: 20px;
+  line-height: 20px;
+  display: inline-block;
+  vertical-align: text-top;
+}
+
+.onedrive-icon,
+.onedrive-business-icon {
+  background: url(../ui/images/icon-sync-onedrive.svg) no-repeat center;
+  background-size: 20px;
+}
+
+.googleDrive-icon {
+  background: url(../ui/images/icon-sync-google-drive.svg) no-repeat center;
+  background-size: 20px;
+}
+
+.onedrive-icon,
+.onedrive-business-icon {
+  background: url(../ui/images/icon-sync-onedrive.svg) no-repeat center;
+  background-size: 20px;
+}
+
+@media (min-width: 1600px) and (max-width: 1900px) {
+  .wpfd-files-wrapper .wpfd-file {
+    max-width: 26%;
+  }
+}
+@media (min-width: 1366px) and (max-width: 1599px) {
+  .wpfd-modal-content .wpfd-modal-left-panel {
+    flex-basis: 200px;
+    max-width: 200px;
+  }
+
+  .wpfd-modal-content .wpfd-modal-right-panel {
+    flex-basis: calc(100% - 210px);
+  }
+
+  .wpfd-files-wrapper .wpfd-file {
+    max-width: 26%;
+  }
+}
+@media (min-width: 1024px) and (max-width: 1365px) {
+  .wpfd-modal-content .wpfd-modal-left-panel {
+    flex-basis: 200px;
+    max-width: 200px;
+  }
+
+  .wpfd-modal-content .wpfd-modal-right-panel {
+    flex-basis: calc(100% - 210px);
+  }
+}
+
+/*# sourceMappingURL=wpfd-blocks.css.map */

@@ -1,0 +1,854 @@
+/* Columns */
+/* Wizard variables */
+#wpreview .wpfd-toolbar-wrapper .wpfd-filter-file {
+  right: 10px;
+}
+#wpreview .wpfd-toolbar-wrapper #wpfd_alt_filter,
+#wpreview .wpfd-toolbar-wrapper .wpfd-flip {
+  display: block;
+  height: 20px;
+  width: 20px;
+  cursor: pointer;
+  float: right;
+  margin-left: 15px;
+  color: #7296a8;
+}
+#wpreview .wpfd-toolbar-wrapper .wpfd-flip {
+  -webkit-transition: transform 0.5s linear;
+  -moz-transition: transform 0.5s linear;
+  -ms-transition: transform 0.5s linear;
+  -o-transition: transform 0.5s linear;
+  transition: transform 0.5s linear;
+}
+#wpreview .wpfd-toolbar-wrapper .wpfd-filter-box {
+  width: 100px;
+  position: absolute;
+  top: 25px;
+  background: #fff;
+  padding: 15px;
+  -webkit-box-shadow: 0 0 7px -1px #ddd;
+  -moz-box-shadow: 0 0 7px -1px #ddd;
+  box-shadow: 0 0 7px -1px #ddd;
+}
+
+#preview {
+  margin-top: 0 !important;
+}
+#preview .wpfd_alt_wrapper {
+  padding: 25px;
+}
+#preview .wpfd_alt_wrapper .wpfd_files_container {
+  display: flex;
+  flex-flow: row wrap;
+}
+#preview .wpfd_alt_wrapper .wpfd_files_container .file {
+  margin: 10px;
+  flex: 0 1 calc(50% - 60px);
+  max-width: calc(50% - 60px);
+  position: relative;
+  background: #fff;
+  padding: 20px;
+  -webkit-border-radius: 4px;
+  -moz-border-radius: 4px;
+  border-radius: 4px;
+  -webkit-box-shadow: 20px 20px 58px -35px #111;
+  -moz-box-shadow: 20px 20px 58px -35px #111;
+  box-shadow: 20px 20px 58px -35px #111;
+  -webkit-box-sizing: content-box;
+  -moz-box-sizing: content-box;
+  box-sizing: content-box;
+}
+@media only screen and (max-width: 768px) {
+  #preview .wpfd_alt_wrapper .wpfd_files_container .file {
+    flex-basis: calc(100%/1 - 60px);
+    max-width: calc(100%/1 - 60px);
+  }
+}
+#preview .wpfd_alt_wrapper .wpfd_files_container .file.selected {
+  -webkit-box-shadow: 0 0 0 1px #ff8726;
+  -moz-box-shadow: 0 0 0 1px #ff8726;
+  box-shadow: 0 0 0 1px #ff8726;
+}
+#preview .wpfd_alt_wrapper .wpfd_files_container .file .ext {
+  display: block;
+  float: left;
+  width: 50px;
+  height: 70px;
+  background: #485563;
+  background: -moz-linear-gradient(-45deg, #29323c 0%, #485563 100%);
+  background: -webkit-linear-gradient(-45deg, #29323c 0%, #485563 100%);
+  background: linear-gradient(149deg, #29323c 0%, #485563 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr="#29323c", endColorstr="#485563",GradientType=1 );
+  -webkit-border-radius: 4px;
+  -moz-border-radius: 4px;
+  border-radius: 4px;
+  position: relative;
+}
+#preview .wpfd_alt_wrapper .wpfd_files_container .file .ext .txt {
+  display: block;
+  position: absolute;
+  right: 0;
+  left: 0;
+  color: white;
+  text-align: center;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  font-weight: bold;
+  font-size: 1em;
+  top: 50%;
+  transform: translateY(-50%);
+}
+#preview .wpfd_alt_wrapper .wpfd_files_container .file .ext.doc {
+  background: #00d2ff;
+  background: -moz-linear-gradient(-45deg, #928dab 0%, #00d2ff 100%);
+  background: -webkit-linear-gradient(-45deg, #928dab 0%, #00d2ff 100%);
+  background: linear-gradient(149deg, #928dab 0%, #00d2ff 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr="#928dab", endColorstr="#00d2ff",GradientType=1 );
+}
+#preview .wpfd_alt_wrapper .wpfd_files_container .file .ext.docx {
+  background: #00d2ff;
+  background: -moz-linear-gradient(-45deg, #928dab 0%, #00d2ff 100%);
+  background: -webkit-linear-gradient(-45deg, #928dab 0%, #00d2ff 100%);
+  background: linear-gradient(149deg, #928dab 0%, #00d2ff 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr="#928dab", endColorstr="#00d2ff",GradientType=1 );
+}
+#preview .wpfd_alt_wrapper .wpfd_files_container .file .ext.odt {
+  background: #00d2ff;
+  background: -moz-linear-gradient(-45deg, #928dab 0%, #00d2ff 100%);
+  background: -webkit-linear-gradient(-45deg, #928dab 0%, #00d2ff 100%);
+  background: linear-gradient(149deg, #928dab 0%, #00d2ff 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr="#928dab", endColorstr="#00d2ff",GradientType=1 );
+}
+#preview .wpfd_alt_wrapper .wpfd_files_container .file .ext.pages {
+  background: #00d2ff;
+  background: -moz-linear-gradient(-45deg, #928dab 0%, #00d2ff 100%);
+  background: -webkit-linear-gradient(-45deg, #928dab 0%, #00d2ff 100%);
+  background: linear-gradient(149deg, #928dab 0%, #00d2ff 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr="#928dab", endColorstr="#00d2ff",GradientType=1 );
+}
+#preview .wpfd_alt_wrapper .wpfd_files_container .file .ext.ace {
+  background: #11998e;
+  background: -moz-linear-gradient(-45deg, #38ef7d 0%, #11998e 100%);
+  background: -webkit-linear-gradient(-45deg, #38ef7d 0%, #11998e 100%);
+  background: linear-gradient(149deg, #38ef7d 0%, #11998e 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr="#38ef7d", endColorstr="#11998e",GradientType=1 );
+}
+#preview .wpfd_alt_wrapper .wpfd_files_container .file .ext.bz2 {
+  background: #11998e;
+  background: -moz-linear-gradient(-45deg, #38ef7d 0%, #11998e 100%);
+  background: -webkit-linear-gradient(-45deg, #38ef7d 0%, #11998e 100%);
+  background: linear-gradient(149deg, #38ef7d 0%, #11998e 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr="#38ef7d", endColorstr="#11998e",GradientType=1 );
+}
+#preview .wpfd_alt_wrapper .wpfd_files_container .file .ext.gz {
+  background: #11998e;
+  background: -moz-linear-gradient(-45deg, #38ef7d 0%, #11998e 100%);
+  background: -webkit-linear-gradient(-45deg, #38ef7d 0%, #11998e 100%);
+  background: linear-gradient(149deg, #38ef7d 0%, #11998e 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr="#38ef7d", endColorstr="#11998e",GradientType=1 );
+}
+#preview .wpfd_alt_wrapper .wpfd_files_container .file .ext.rar {
+  background: #11998e;
+  background: -moz-linear-gradient(-45deg, #38ef7d 0%, #11998e 100%);
+  background: -webkit-linear-gradient(-45deg, #38ef7d 0%, #11998e 100%);
+  background: linear-gradient(149deg, #38ef7d 0%, #11998e 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr="#38ef7d", endColorstr="#11998e",GradientType=1 );
+}
+#preview .wpfd_alt_wrapper .wpfd_files_container .file .ext.tgz {
+  background: #11998e;
+  background: -moz-linear-gradient(-45deg, #38ef7d 0%, #11998e 100%);
+  background: -webkit-linear-gradient(-45deg, #38ef7d 0%, #11998e 100%);
+  background: linear-gradient(149deg, #38ef7d 0%, #11998e 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr="#38ef7d", endColorstr="#11998e",GradientType=1 );
+}
+#preview .wpfd_alt_wrapper .wpfd_files_container .file .ext.zip {
+  background: #11998e;
+  background: -moz-linear-gradient(-45deg, #38ef7d 0%, #11998e 100%);
+  background: -webkit-linear-gradient(-45deg, #38ef7d 0%, #11998e 100%);
+  background: linear-gradient(149deg, #38ef7d 0%, #11998e 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr="#38ef7d", endColorstr="#11998e",GradientType=1 );
+}
+#preview .wpfd_alt_wrapper .wpfd_files_container .file .ext.dmg {
+  background: #c21500;
+  background: -moz-linear-gradient(-45deg, #ffc500 0%, #c21500 100%);
+  background: -webkit-linear-gradient(-45deg, #ffc500 0%, #c21500 100%);
+  background: linear-gradient(149deg, #ffc500 0%, #c21500 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr="#ffc500", endColorstr="#c21500",GradientType=1 );
+}
+#preview .wpfd_alt_wrapper .wpfd_files_container .file .ext.html {
+  background: #ffe000;
+  background: -moz-linear-gradient(-45deg, #799f0c 0%, #ffe000 100%);
+  background: -webkit-linear-gradient(-45deg, #799f0c 0%, #ffe000 100%);
+  background: linear-gradient(149deg, #799f0c 0%, #ffe000 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr="#799f0c", endColorstr="#ffe000",GradientType=1 );
+}
+#preview .wpfd_alt_wrapper .wpfd_files_container .file .ext.key {
+  background: #ff00cc;
+  background: -moz-linear-gradient(-45deg, #333399 0%, #ff00cc 100%);
+  background: -webkit-linear-gradient(-45deg, #333399 0%, #ff00cc 100%);
+  background: linear-gradient(149deg, #333399 0%, #ff00cc 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr="#333399", endColorstr="#ff00cc",GradientType=1 );
+}
+#preview .wpfd_alt_wrapper .wpfd_files_container .file .ext.keynote {
+  background: #ff00cc;
+  background: -moz-linear-gradient(-45deg, #333399 0%, #ff00cc 100%);
+  background: -webkit-linear-gradient(-45deg, #333399 0%, #ff00cc 100%);
+  background: linear-gradient(149deg, #333399 0%, #ff00cc 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr="#333399", endColorstr="#ff00cc",GradientType=1 );
+}
+#preview .wpfd_alt_wrapper .wpfd_files_container .file .ext.odp {
+  background: #ff00cc;
+  background: -moz-linear-gradient(-45deg, #333399 0%, #ff00cc 100%);
+  background: -webkit-linear-gradient(-45deg, #333399 0%, #ff00cc 100%);
+  background: linear-gradient(149deg, #333399 0%, #ff00cc 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr="#333399", endColorstr="#ff00cc",GradientType=1 );
+}
+#preview .wpfd_alt_wrapper .wpfd_files_container .file .ext.pps {
+  background: #ff00cc;
+  background: -moz-linear-gradient(-45deg, #333399 0%, #ff00cc 100%);
+  background: -webkit-linear-gradient(-45deg, #333399 0%, #ff00cc 100%);
+  background: linear-gradient(149deg, #333399 0%, #ff00cc 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr="#333399", endColorstr="#ff00cc",GradientType=1 );
+}
+#preview .wpfd_alt_wrapper .wpfd_files_container .file .ext.ppt {
+  background: #ff00cc;
+  background: -moz-linear-gradient(-45deg, #333399 0%, #ff00cc 100%);
+  background: -webkit-linear-gradient(-45deg, #333399 0%, #ff00cc 100%);
+  background: linear-gradient(149deg, #333399 0%, #ff00cc 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr="#333399", endColorstr="#ff00cc",GradientType=1 );
+}
+#preview .wpfd_alt_wrapper .wpfd_files_container .file .ext.pptx {
+  background: #ff00cc;
+  background: -moz-linear-gradient(-45deg, #333399 0%, #ff00cc 100%);
+  background: -webkit-linear-gradient(-45deg, #333399 0%, #ff00cc 100%);
+  background: linear-gradient(149deg, #333399 0%, #ff00cc 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr="#333399", endColorstr="#ff00cc",GradientType=1 );
+}
+#preview .wpfd_alt_wrapper .wpfd_files_container .file .ext.ppt {
+  background: #ff00cc;
+  background: -moz-linear-gradient(-45deg, #333399 0%, #ff00cc 100%);
+  background: -webkit-linear-gradient(-45deg, #333399 0%, #ff00cc 100%);
+  background: linear-gradient(149deg, #333399 0%, #ff00cc 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr="#333399", endColorstr="#ff00cc",GradientType=1 );
+}
+#preview .wpfd_alt_wrapper .wpfd_files_container .file .ext.ods {
+  background: #3ca55c;
+  background: -moz-linear-gradient(-45deg, #b5ac49 0%, #3ca55c 100%);
+  background: -webkit-linear-gradient(-45deg, #b5ac49 0%, #3ca55c 100%);
+  background: linear-gradient(149deg, #b5ac49 0%, #3ca55c 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr="#b5ac49", endColorstr="#3ca55c",GradientType=1 );
+}
+#preview .wpfd_alt_wrapper .wpfd_files_container .file .ext.xls {
+  background: #3ca55c;
+  background: -moz-linear-gradient(-45deg, #b5ac49 0%, #3ca55c 100%);
+  background: -webkit-linear-gradient(-45deg, #b5ac49 0%, #3ca55c 100%);
+  background: linear-gradient(149deg, #b5ac49 0%, #3ca55c 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr="#b5ac49", endColorstr="#3ca55c",GradientType=1 );
+}
+#preview .wpfd_alt_wrapper .wpfd_files_container .file .ext.xlsx {
+  background: #3ca55c;
+  background: -moz-linear-gradient(-45deg, #b5ac49 0%, #3ca55c 100%);
+  background: -webkit-linear-gradient(-45deg, #b5ac49 0%, #3ca55c 100%);
+  background: linear-gradient(149deg, #b5ac49 0%, #3ca55c 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr="#b5ac49", endColorstr="#3ca55c",GradientType=1 );
+}
+#preview .wpfd_alt_wrapper .wpfd_files_container .file .ext.csv {
+  background: #3ca55c;
+  background: -moz-linear-gradient(-45deg, #b5ac49 0%, #3ca55c 100%);
+  background: -webkit-linear-gradient(-45deg, #b5ac49 0%, #3ca55c 100%);
+  background: linear-gradient(149deg, #b5ac49 0%, #3ca55c 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr="#b5ac49", endColorstr="#3ca55c",GradientType=1 );
+}
+#preview .wpfd_alt_wrapper .wpfd_files_container .file .ext.txt {
+  background: #3E5151;
+  background: -moz-linear-gradient(-45deg, #DECBA4 0%, #3E5151 100%);
+  background: -webkit-linear-gradient(-45deg, #DECBA4 0%, #3E5151 100%);
+  background: linear-gradient(149deg, #DECBA4 0%, #3E5151 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr="#DECBA4", endColorstr="#3E5151",GradientType=1 );
+}
+#preview .wpfd_alt_wrapper .wpfd_files_container .file .ext.rtf {
+  background: #3E5151;
+  background: -moz-linear-gradient(-45deg, #DECBA4 0%, #3E5151 100%);
+  background: -webkit-linear-gradient(-45deg, #DECBA4 0%, #3E5151 100%);
+  background: linear-gradient(149deg, #DECBA4 0%, #3E5151 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr="#DECBA4", endColorstr="#3E5151",GradientType=1 );
+}
+#preview .wpfd_alt_wrapper .wpfd_files_container .file .ext.tex {
+  background: #3E5151;
+  background: -moz-linear-gradient(-45deg, #DECBA4 0%, #3E5151 100%);
+  background: -webkit-linear-gradient(-45deg, #DECBA4 0%, #3E5151 100%);
+  background: linear-gradient(149deg, #DECBA4 0%, #3E5151 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr="#DECBA4", endColorstr="#3E5151",GradientType=1 );
+}
+#preview .wpfd_alt_wrapper .wpfd_files_container .file .ext.ttf {
+  background: #3E5151;
+  background: -moz-linear-gradient(-45deg, #DECBA4 0%, #3E5151 100%);
+  background: -webkit-linear-gradient(-45deg, #DECBA4 0%, #3E5151 100%);
+  background: linear-gradient(149deg, #DECBA4 0%, #3E5151 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr="#DECBA4", endColorstr="#3E5151",GradientType=1 );
+}
+#preview .wpfd_alt_wrapper .wpfd_files_container .file .ext.xml {
+  background: #606c88;
+  background: -moz-linear-gradient(-45deg, #3f4c6b 0%, #606c88 100%);
+  background: -webkit-linear-gradient(-45deg, #3f4c6b 0%, #606c88 100%);
+  background: linear-gradient(149deg, #3f4c6b 0%, #606c88 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr="#3f4c6b", endColorstr="#606c88",GradientType=1 );
+}
+#preview .wpfd_alt_wrapper .wpfd_files_container .file .ext.css {
+  background: #606c88;
+  background: -moz-linear-gradient(-45deg, #3f4c6b 0%, #606c88 100%);
+  background: -webkit-linear-gradient(-45deg, #3f4c6b 0%, #606c88 100%);
+  background: linear-gradient(149deg, #3f4c6b 0%, #606c88 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr="#3f4c6b", endColorstr="#606c88",GradientType=1 );
+}
+#preview .wpfd_alt_wrapper .wpfd_files_container .file .ext.pdf {
+  background: #333333;
+  background: -moz-linear-gradient(-45deg, #dd1818 0%, #333333 100%);
+  background: -webkit-linear-gradient(-45deg, #dd1818 0%, #333333 100%);
+  background: linear-gradient(149deg, #dd1818 0%, #333333 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr="#dd1818", endColorstr="#333333",GradientType=1 );
+}
+#preview .wpfd_alt_wrapper .wpfd_files_container .file .ext.bmp {
+  background: #4e54c8;
+  background: -moz-linear-gradient(-45deg, #8f94fb 0%, #4e54c8 100%);
+  background: -webkit-linear-gradient(-45deg, #8f94fb 0%, #4e54c8 100%);
+  background: linear-gradient(149deg, #8f94fb 0%, #4e54c8 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr="#8f94fb", endColorstr="#4e54c8",GradientType=1 );
+}
+#preview .wpfd_alt_wrapper .wpfd_files_container .file .ext.png {
+  background: #4e54c8;
+  background: -moz-linear-gradient(-45deg, #8f94fb 0%, #4e54c8 100%);
+  background: -webkit-linear-gradient(-45deg, #8f94fb 0%, #4e54c8 100%);
+  background: linear-gradient(149deg, #8f94fb 0%, #4e54c8 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr="#8f94fb", endColorstr="#4e54c8",GradientType=1 );
+}
+#preview .wpfd_alt_wrapper .wpfd_files_container .file .ext.gif {
+  background: #4e54c8;
+  background: -moz-linear-gradient(-45deg, #8f94fb 0%, #4e54c8 100%);
+  background: -webkit-linear-gradient(-45deg, #8f94fb 0%, #4e54c8 100%);
+  background: linear-gradient(149deg, #8f94fb 0%, #4e54c8 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr="#8f94fb", endColorstr="#4e54c8",GradientType=1 );
+}
+#preview .wpfd_alt_wrapper .wpfd_files_container .file .ext.exif {
+  background: #355C7D;
+  background: -moz-linear-gradient(-45deg, #C06C84 0%, #6C5B7B 50%, #355C7D 100%);
+  background: -webkit-linear-gradient(-45deg, #C06C84 0%, #6C5B7B 50%, #355C7D 100%);
+  background: linear-gradient(149deg, #C06C84 0%, #6C5B7B 50%, #355C7D 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr="#C06C84", endColorstr="#355C7D",GradientType=1 );
+}
+#preview .wpfd_alt_wrapper .wpfd_files_container .file .ext.tif {
+  background: #355C7D;
+  background: -moz-linear-gradient(-45deg, #C06C84 0%, #6C5B7B 50%, #355C7D 100%);
+  background: -webkit-linear-gradient(-45deg, #C06C84 0%, #6C5B7B 50%, #355C7D 100%);
+  background: linear-gradient(149deg, #C06C84 0%, #6C5B7B 50%, #355C7D 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr="#C06C84", endColorstr="#355C7D",GradientType=1 );
+}
+#preview .wpfd_alt_wrapper .wpfd_files_container .file .ext.tiff {
+  background: #355C7D;
+  background: -moz-linear-gradient(-45deg, #C06C84 0%, #6C5B7B 50%, #355C7D 100%);
+  background: -webkit-linear-gradient(-45deg, #C06C84 0%, #6C5B7B 50%, #355C7D 100%);
+  background: linear-gradient(149deg, #C06C84 0%, #6C5B7B 50%, #355C7D 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr="#C06C84", endColorstr="#355C7D",GradientType=1 );
+}
+#preview .wpfd_alt_wrapper .wpfd_files_container .file .ext.ico {
+  background: #355C7D;
+  background: -moz-linear-gradient(-45deg, #C06C84 0%, #6C5B7B 50%, #355C7D 100%);
+  background: -webkit-linear-gradient(-45deg, #C06C84 0%, #6C5B7B 50%, #355C7D 100%);
+  background: linear-gradient(149deg, #C06C84 0%, #6C5B7B 50%, #355C7D 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr="#C06C84", endColorstr="#355C7D",GradientType=1 );
+}
+#preview .wpfd_alt_wrapper .wpfd_files_container .file .ext.svg {
+  background: #355C7D;
+  background: -moz-linear-gradient(-45deg, #C06C84 0%, #6C5B7B 50%, #355C7D 100%);
+  background: -webkit-linear-gradient(-45deg, #C06C84 0%, #6C5B7B 50%, #355C7D 100%);
+  background: linear-gradient(149deg, #C06C84 0%, #6C5B7B 50%, #355C7D 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr="#C06C84", endColorstr="#355C7D",GradientType=1 );
+}
+#preview .wpfd_alt_wrapper .wpfd_files_container .file .ext.jpeg {
+  background: #108dc7;
+  background: -moz-linear-gradient(-45deg, #ef8e38 0%, #108dc7 100%);
+  background: -webkit-linear-gradient(-45deg, #ef8e38 0%, #108dc7 100%);
+  background: linear-gradient(149deg, #ef8e38 0%, #108dc7 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr="#ef8e38", endColorstr="#108dc7",GradientType=1 );
+}
+#preview .wpfd_alt_wrapper .wpfd_files_container .file .ext.jpg {
+  background: #108dc7;
+  background: -moz-linear-gradient(-45deg, #ef8e38 0%, #108dc7 100%);
+  background: -webkit-linear-gradient(-45deg, #ef8e38 0%, #108dc7 100%);
+  background: linear-gradient(149deg, #ef8e38 0%, #108dc7 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr="#ef8e38", endColorstr="#108dc7",GradientType=1 );
+}
+#preview .wpfd_alt_wrapper .wpfd_files_container .file .ext.psd {
+  background: #FC5C7D;
+  background: -moz-linear-gradient(-45deg, #6A82FB 0%, #FC5C7D 100%);
+  background: -webkit-linear-gradient(-45deg, #6A82FB 0%, #FC5C7D 100%);
+  background: linear-gradient(149deg, #6A82FB 0%, #FC5C7D 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr="#6A82FB", endColorstr="#FC5C7D",GradientType=1 );
+}
+#preview .wpfd_alt_wrapper .wpfd_files_container .file .ext.img {
+  background: #FC5C7D;
+  background: -moz-linear-gradient(-45deg, #6A82FB 0%, #FC5C7D 100%);
+  background: -webkit-linear-gradient(-45deg, #6A82FB 0%, #FC5C7D 100%);
+  background: linear-gradient(149deg, #6A82FB 0%, #FC5C7D 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr="#6A82FB", endColorstr="#FC5C7D",GradientType=1 );
+}
+#preview .wpfd_alt_wrapper .wpfd_files_container .file .ext.ai {
+  background: #FC5C7D;
+  background: -moz-linear-gradient(-45deg, #6A82FB 0%, #FC5C7D 100%);
+  background: -webkit-linear-gradient(-45deg, #6A82FB 0%, #FC5C7D 100%);
+  background: linear-gradient(149deg, #6A82FB 0%, #FC5C7D 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr="#6A82FB", endColorstr="#FC5C7D",GradientType=1 );
+}
+#preview .wpfd_alt_wrapper .wpfd_files_container .file .ext.dxf {
+  background: #FC5C7D;
+  background: -moz-linear-gradient(-45deg, #6A82FB 0%, #FC5C7D 100%);
+  background: -webkit-linear-gradient(-45deg, #6A82FB 0%, #FC5C7D 100%);
+  background: linear-gradient(149deg, #6A82FB 0%, #FC5C7D 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr="#6A82FB", endColorstr="#FC5C7D",GradientType=1 );
+}
+#preview .wpfd_alt_wrapper .wpfd_files_container .file .ext.avi {
+  background: #c94b4b;
+  background: -moz-linear-gradient(-45deg, #4b134f 0%, #c94b4b 100%);
+  background: -webkit-linear-gradient(-45deg, #4b134f 0%, #c94b4b 100%);
+  background: linear-gradient(149deg, #4b134f 0%, #c94b4b 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr="#4b134f", endColorstr="#c94b4b",GradientType=1 );
+}
+#preview .wpfd_alt_wrapper .wpfd_files_container .file .ext.flv {
+  background: #c94b4b;
+  background: -moz-linear-gradient(-45deg, #4b134f 0%, #c94b4b 100%);
+  background: -webkit-linear-gradient(-45deg, #4b134f 0%, #c94b4b 100%);
+  background: linear-gradient(149deg, #4b134f 0%, #c94b4b 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr="#4b134f", endColorstr="#c94b4b",GradientType=1 );
+}
+#preview .wpfd_alt_wrapper .wpfd_files_container .file .ext.mov {
+  background: #c94b4b;
+  background: -moz-linear-gradient(-45deg, #4b134f 0%, #c94b4b 100%);
+  background: -webkit-linear-gradient(-45deg, #4b134f 0%, #c94b4b 100%);
+  background: linear-gradient(149deg, #4b134f 0%, #c94b4b 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr="#4b134f", endColorstr="#c94b4b",GradientType=1 );
+}
+#preview .wpfd_alt_wrapper .wpfd_files_container .file .ext.mpeg {
+  background: #c94b4b;
+  background: -moz-linear-gradient(-45deg, #4b134f 0%, #c94b4b 100%);
+  background: -webkit-linear-gradient(-45deg, #4b134f 0%, #c94b4b 100%);
+  background: linear-gradient(149deg, #4b134f 0%, #c94b4b 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr="#4b134f", endColorstr="#c94b4b",GradientType=1 );
+}
+#preview .wpfd_alt_wrapper .wpfd_files_container .file .ext.m4v {
+  background: #c94b4b;
+  background: -moz-linear-gradient(-45deg, #4b134f 0%, #c94b4b 100%);
+  background: -webkit-linear-gradient(-45deg, #4b134f 0%, #c94b4b 100%);
+  background: linear-gradient(149deg, #4b134f 0%, #c94b4b 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr="#4b134f", endColorstr="#c94b4b",GradientType=1 );
+}
+#preview .wpfd_alt_wrapper .wpfd_files_container .file .ext.mkv {
+  background: #c94b4b;
+  background: -moz-linear-gradient(-45deg, #4b134f 0%, #c94b4b 100%);
+  background: -webkit-linear-gradient(-45deg, #4b134f 0%, #c94b4b 100%);
+  background: linear-gradient(149deg, #4b134f 0%, #c94b4b 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr="#4b134f", endColorstr="#c94b4b",GradientType=1 );
+}
+#preview .wpfd_alt_wrapper .wpfd_files_container .file .ext.mpg {
+  background: #c94b4b;
+  background: -moz-linear-gradient(-45deg, #4b134f 0%, #c94b4b 100%);
+  background: -webkit-linear-gradient(-45deg, #4b134f 0%, #c94b4b 100%);
+  background: linear-gradient(149deg, #4b134f 0%, #c94b4b 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr="#4b134f", endColorstr="#c94b4b",GradientType=1 );
+}
+#preview .wpfd_alt_wrapper .wpfd_files_container .file .ext.mp4 {
+  background: #c94b4b;
+  background: -moz-linear-gradient(-45deg, #4b134f 0%, #c94b4b 100%);
+  background: -webkit-linear-gradient(-45deg, #4b134f 0%, #c94b4b 100%);
+  background: linear-gradient(149deg, #4b134f 0%, #c94b4b 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr="#4b134f", endColorstr="#c94b4b",GradientType=1 );
+}
+#preview .wpfd_alt_wrapper .wpfd_files_container .file .ext.swf {
+  background: #c94b4b;
+  background: -moz-linear-gradient(-45deg, #4b134f 0%, #c94b4b 100%);
+  background: -webkit-linear-gradient(-45deg, #4b134f 0%, #c94b4b 100%);
+  background: linear-gradient(149deg, #4b134f 0%, #c94b4b 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr="#4b134f", endColorstr="#c94b4b",GradientType=1 );
+}
+#preview .wpfd_alt_wrapper .wpfd_files_container .file .ext.wmv {
+  background: #c94b4b;
+  background: -moz-linear-gradient(-45deg, #4b134f 0%, #c94b4b 100%);
+  background: -webkit-linear-gradient(-45deg, #4b134f 0%, #c94b4b 100%);
+  background: linear-gradient(149deg, #4b134f 0%, #c94b4b 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr="#4b134f", endColorstr="#c94b4b",GradientType=1 );
+}
+#preview .wpfd_alt_wrapper .wpfd_files_container .file .ext.rm {
+  background: #c94b4b;
+  background: -moz-linear-gradient(-45deg, #4b134f 0%, #c94b4b 100%);
+  background: -webkit-linear-gradient(-45deg, #4b134f 0%, #c94b4b 100%);
+  background: linear-gradient(149deg, #4b134f 0%, #c94b4b 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr="#4b134f", endColorstr="#c94b4b",GradientType=1 );
+}
+#preview .wpfd_alt_wrapper .wpfd_files_container .file .ext.mp3 {
+  background: #22c1c3;
+  background: -moz-linear-gradient(-45deg, #fdbb2d 0%, #22c1c3 100%);
+  background: -webkit-linear-gradient(-45deg, #fdbb2d 0%, #22c1c3 100%);
+  background: linear-gradient(149deg, #fdbb2d 0%, #22c1c3 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr="#fdbb2d", endColorstr="#22c1c3",GradientType=1 );
+}
+#preview .wpfd_alt_wrapper .wpfd_files_container .file .ext.mpa {
+  background: #22c1c3;
+  background: -moz-linear-gradient(-45deg, #fdbb2d 0%, #22c1c3 100%);
+  background: -webkit-linear-gradient(-45deg, #fdbb2d 0%, #22c1c3 100%);
+  background: linear-gradient(149deg, #fdbb2d 0%, #22c1c3 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr="#fdbb2d", endColorstr="#22c1c3",GradientType=1 );
+}
+#preview .wpfd_alt_wrapper .wpfd_files_container .file .ext.ogg {
+  background: #22c1c3;
+  background: -moz-linear-gradient(-45deg, #fdbb2d 0%, #22c1c3 100%);
+  background: -webkit-linear-gradient(-45deg, #fdbb2d 0%, #22c1c3 100%);
+  background: linear-gradient(149deg, #fdbb2d 0%, #22c1c3 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr="#fdbb2d", endColorstr="#22c1c3",GradientType=1 );
+}
+#preview .wpfd_alt_wrapper .wpfd_files_container .file .ext.aac {
+  background: #22c1c3;
+  background: -moz-linear-gradient(-45deg, #fdbb2d 0%, #22c1c3 100%);
+  background: -webkit-linear-gradient(-45deg, #fdbb2d 0%, #22c1c3 100%);
+  background: linear-gradient(149deg, #fdbb2d 0%, #22c1c3 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr="#fdbb2d", endColorstr="#22c1c3",GradientType=1 );
+}
+#preview .wpfd_alt_wrapper .wpfd_files_container .file .ext.flac {
+  background: #22c1c3;
+  background: -moz-linear-gradient(-45deg, #fdbb2d 0%, #22c1c3 100%);
+  background: -webkit-linear-gradient(-45deg, #fdbb2d 0%, #22c1c3 100%);
+  background: linear-gradient(149deg, #fdbb2d 0%, #22c1c3 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr="#fdbb2d", endColorstr="#22c1c3",GradientType=1 );
+}
+#preview .wpfd_alt_wrapper .wpfd_files_container .file .ext.mid {
+  background: #22c1c3;
+  background: -moz-linear-gradient(-45deg, #fdbb2d 0%, #22c1c3 100%);
+  background: -webkit-linear-gradient(-45deg, #fdbb2d 0%, #22c1c3 100%);
+  background: linear-gradient(149deg, #fdbb2d 0%, #22c1c3 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr="#fdbb2d", endColorstr="#22c1c3",GradientType=1 );
+}
+#preview .wpfd_alt_wrapper .wpfd_files_container .file .ext.aiff {
+  background: #22c1c3;
+  background: -moz-linear-gradient(-45deg, #fdbb2d 0%, #22c1c3 100%);
+  background: -webkit-linear-gradient(-45deg, #fdbb2d 0%, #22c1c3 100%);
+  background: linear-gradient(149deg, #fdbb2d 0%, #22c1c3 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr="#fdbb2d", endColorstr="#22c1c3",GradientType=1 );
+}
+#preview .wpfd_alt_wrapper .wpfd_files_container .file .ext.alac {
+  background: #22c1c3;
+  background: -moz-linear-gradient(-45deg, #fdbb2d 0%, #22c1c3 100%);
+  background: -webkit-linear-gradient(-45deg, #fdbb2d 0%, #22c1c3 100%);
+  background: linear-gradient(149deg, #fdbb2d 0%, #22c1c3 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr="#fdbb2d", endColorstr="#22c1c3",GradientType=1 );
+}
+#preview .wpfd_alt_wrapper .wpfd_files_container .file .ext.amr {
+  background: #22c1c3;
+  background: -moz-linear-gradient(-45deg, #fdbb2d 0%, #22c1c3 100%);
+  background: -webkit-linear-gradient(-45deg, #fdbb2d 0%, #22c1c3 100%);
+  background: linear-gradient(149deg, #fdbb2d 0%, #22c1c3 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr="#fdbb2d", endColorstr="#22c1c3",GradientType=1 );
+}
+#preview .wpfd_alt_wrapper .wpfd_files_container .file .ext.au {
+  background: #22c1c3;
+  background: -moz-linear-gradient(-45deg, #fdbb2d 0%, #22c1c3 100%);
+  background: -webkit-linear-gradient(-45deg, #fdbb2d 0%, #22c1c3 100%);
+  background: linear-gradient(149deg, #fdbb2d 0%, #22c1c3 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr="#fdbb2d", endColorstr="#22c1c3",GradientType=1 );
+}
+#preview .wpfd_alt_wrapper .wpfd_files_container .file .ext.cdda {
+  background: #22c1c3;
+  background: -moz-linear-gradient(-45deg, #fdbb2d 0%, #22c1c3 100%);
+  background: -webkit-linear-gradient(-45deg, #fdbb2d 0%, #22c1c3 100%);
+  background: linear-gradient(149deg, #fdbb2d 0%, #22c1c3 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr="#fdbb2d", endColorstr="#22c1c3",GradientType=1 );
+}
+#preview .wpfd_alt_wrapper .wpfd_files_container .file .ext.m3u {
+  background: #22c1c3;
+  background: -moz-linear-gradient(-45deg, #fdbb2d 0%, #22c1c3 100%);
+  background: -webkit-linear-gradient(-45deg, #fdbb2d 0%, #22c1c3 100%);
+  background: linear-gradient(149deg, #fdbb2d 0%, #22c1c3 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr="#fdbb2d", endColorstr="#22c1c3",GradientType=1 );
+}
+#preview .wpfd_alt_wrapper .wpfd_files_container .file .ext.m4a {
+  background: #22c1c3;
+  background: -moz-linear-gradient(-45deg, #fdbb2d 0%, #22c1c3 100%);
+  background: -webkit-linear-gradient(-45deg, #fdbb2d 0%, #22c1c3 100%);
+  background: linear-gradient(149deg, #fdbb2d 0%, #22c1c3 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr="#fdbb2d", endColorstr="#22c1c3",GradientType=1 );
+}
+#preview .wpfd_alt_wrapper .wpfd_files_container .file .ext.m4p {
+  background: #22c1c3;
+  background: -moz-linear-gradient(-45deg, #fdbb2d 0%, #22c1c3 100%);
+  background: -webkit-linear-gradient(-45deg, #fdbb2d 0%, #22c1c3 100%);
+  background: linear-gradient(149deg, #fdbb2d 0%, #22c1c3 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr="#fdbb2d", endColorstr="#22c1c3",GradientType=1 );
+}
+#preview .wpfd_alt_wrapper .wpfd_files_container .file .ext.pac {
+  background: #22c1c3;
+  background: -moz-linear-gradient(-45deg, #fdbb2d 0%, #22c1c3 100%);
+  background: -webkit-linear-gradient(-45deg, #fdbb2d 0%, #22c1c3 100%);
+  background: linear-gradient(149deg, #fdbb2d 0%, #22c1c3 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr="#fdbb2d", endColorstr="#22c1c3",GradientType=1 );
+}
+#preview .wpfd_alt_wrapper .wpfd_files_container .file .ext.ra {
+  background: #22c1c3;
+  background: -moz-linear-gradient(-45deg, #fdbb2d 0%, #22c1c3 100%);
+  background: -webkit-linear-gradient(-45deg, #fdbb2d 0%, #22c1c3 100%);
+  background: linear-gradient(149deg, #fdbb2d 0%, #22c1c3 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr="#fdbb2d", endColorstr="#22c1c3",GradientType=1 );
+}
+#preview .wpfd_alt_wrapper .wpfd_files_container .file .ext.wav {
+  background: #22c1c3;
+  background: -moz-linear-gradient(-45deg, #fdbb2d 0%, #22c1c3 100%);
+  background: -webkit-linear-gradient(-45deg, #fdbb2d 0%, #22c1c3 100%);
+  background: linear-gradient(149deg, #fdbb2d 0%, #22c1c3 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr="#fdbb2d", endColorstr="#22c1c3",GradientType=1 );
+}
+#preview .wpfd_alt_wrapper .wpfd_files_container .file .ext.wma {
+  background: #22c1c3;
+  background: -moz-linear-gradient(-45deg, #fdbb2d 0%, #22c1c3 100%);
+  background: -webkit-linear-gradient(-45deg, #fdbb2d 0%, #22c1c3 100%);
+  background: linear-gradient(149deg, #fdbb2d 0%, #22c1c3 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr="#fdbb2d", endColorstr="#22c1c3",GradientType=1 );
+}
+#preview .wpfd_alt_wrapper .wpfd_files_container .file .ext.asf {
+  background: #22c1c3;
+  background: -moz-linear-gradient(-45deg, #fdbb2d 0%, #22c1c3 100%);
+  background: -webkit-linear-gradient(-45deg, #fdbb2d 0%, #22c1c3 100%);
+  background: linear-gradient(149deg, #fdbb2d 0%, #22c1c3 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr="#fdbb2d", endColorstr="#22c1c3",GradientType=1 );
+}
+#preview .wpfd_alt_wrapper .wpfd_files_container .file .ext.vob {
+  background: #22c1c3;
+  background: -moz-linear-gradient(-45deg, #fdbb2d 0%, #22c1c3 100%);
+  background: -webkit-linear-gradient(-45deg, #fdbb2d 0%, #22c1c3 100%);
+  background: linear-gradient(149deg, #fdbb2d 0%, #22c1c3 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr="#fdbb2d", endColorstr="#22c1c3",GradientType=1 );
+}
+#preview .wpfd_alt_wrapper .wpfd_files_container .file .file_info {
+  display: block;
+  width: calc(100% - 70px);
+  margin: 0 10px;
+  color: #7296a8;
+  font-size: 11px;
+  float: left;
+}
+#preview .wpfd_alt_wrapper .wpfd_files_container .file .file_info:after {
+  clear: both;
+}
+#preview .wpfd_alt_wrapper .wpfd_files_container .file .file_info .file_title {
+  color: #404852;
+  font-size: 14px;
+  margin: 0;
+  overflow: hidden;
+  -ms-text-overflow: ellipsis;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  padding-bottom: 10px;
+  line-height: 1;
+}
+#preview .wpfd_alt_wrapper .wpfd_files_container .file .file_info span {
+  width: 100%;
+  display: block;
+}
+#preview .wpfd_alt_wrapper .wpfd_files_container .file.cuted .file_toolbox {
+  z-index: 3;
+}
+#preview .wpfd_alt_wrapper .wpfd_files_container .file .file_toolbox {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  display: block;
+  width: 20px;
+  height: 20px;
+  background: transparent url(../images/icon-file-menu.svg) no-repeat;
+  background-position: 50%;
+  overflow: unset;
+}
+#preview .wpfd_alt_wrapper .wpfd_files_container .file .file_toolbox .file_menu {
+  display: none;
+}
+#preview .wpfd_alt_wrapper .wpfd_files_container .file .file_toolbox:hover {
+  cursor: pointer;
+}
+#preview .wpfd_alt_wrapper .wpfd_files_container .file .file_toolbox:hover .file_menu {
+  display: block;
+  width: 78px;
+  z-index: 1;
+  background: #ffffff;
+  border: 1px solid #5F879B;
+  padding: 10px 15px;
+  margin: 0;
+  text-align: left;
+  position: absolute;
+  left: -45px;
+  top: 30px;
+  cursor: pointer;
+  -webkit-border-radius: 4px;
+  -moz-border-radius: 4px;
+  border-radius: 4px;
+}
+#preview .wpfd_alt_wrapper .wpfd_files_container .file .file_toolbox:hover .file_menu:after {
+  content: "";
+  width: 20px;
+  height: 20px;
+  display: block;
+  position: absolute;
+  z-index: 2;
+  top: -10px;
+  border: 1px solid #5F879B;
+  border-bottom: 0;
+  border-right: 0;
+  background: #ffffff;
+  -webkit-transform: rotate(45deg) translateY(-104%) translateX(96%);
+  -moz-transform: rotate(45deg) translateY(-104%) translateX(96%);
+  -ms-transform: rotate(45deg) translateY(-104%) translateX(96%);
+  -o-transform: rotate(45deg) translateY(-104%) translateX(96%);
+  transform: rotate(45deg) translateY(-104%) translateX(96%);
+}
+#preview .wpfd_alt_wrapper .wpfd_files_container .file .file_toolbox:hover .file_menu li {
+  line-height: 25px;
+  color: #5F879B;
+  -webkit-transition: all 0.2s ease-in-out;
+  -moz-transition: all 0.2s ease-in-out;
+  -ms-transition: all 0.2s ease-in-out;
+  -o-transition: all 0.2s ease-in-out;
+  transition: all 0.2s ease-in-out;
+}
+#preview .wpfd_alt_wrapper .wpfd_files_container .file .file_toolbox:hover .file_menu li:hover {
+  -webkit-transform: scale(1.2);
+  -moz-transform: scale(1.2);
+  -ms-transform: scale(1.2);
+  -o-transform: scale(1.2);
+  transform: scale(1.2);
+  cursor: pointer;
+}
+#preview .wpfd_alt_wrapper .wpfd_files_container .file .ju-button {
+  padding: 5px 10px;
+  font-size: 11px;
+  font-size: 0.6875rem;
+  min-width: fit-content;
+  min-width: -moz-min-content;
+  min-width: -webkit-min-content;
+  margin-top: 15px;
+  text-transform: capitalize;
+}
+#preview .wpfd_alt_wrapper .wpfd_files_container .file .ju-button .material-icons {
+  font-size: 1.4em;
+  vertical-align: sub;
+}
+#preview .wpfd_alt_wrapper .wpfd_files_container .file .ju-button:hover {
+  cursor: pointer;
+}
+#preview .wpfd_alt_wrapper .wpfd_files_container .file.isWoocommerce .goProducts {
+  position: absolute;
+  bottom: 25px;
+  left: 25px;
+  display: block;
+  width: 36px;
+  height: 18px;
+  padding: 2px 4px;
+  background: #9b5c8f;
+  border: 0;
+  border-radius: 4px;
+  font-size: 0.9em;
+  line-height: 15px;
+  color: #fff;
+  text-align: center;
+  font-weight: bold;
+}
+#preview .wpfd_alt_wrapper .wpfd_files_container .file.isWoocommerce .goProducts:focus, #preview .wpfd_alt_wrapper .wpfd_files_container .file.isWoocommerce .goProducts:hover, #preview .wpfd_alt_wrapper .wpfd_files_container .file.isWoocommerce .goProducts:active {
+  outline: none;
+}
+#preview .wpfd_alt_wrapper .wpfd_files_container .file.isWoocommerce .goProducts:hover {
+  cursor: pointer;
+}
+#preview .wpfd_alt_wrapper .wpfd_files_container .file.highlight {
+  border: 1px dashed #1d6cb0;
+  background: transparent;
+  margin: 9px;
+}
+#preview .wpfd_alt_wrapper .wpfd_files_container .file.highlight td {
+  display: block;
+  border: none;
+}
+#preview .wpfd_alt_wrapper .wpfd_categories_container {
+  display: flex;
+  flex-flow: row wrap;
+}
+#preview .wpfd_alt_wrapper .wpfd_categories_container .flex-span {
+  flex: 1 0 120%px;
+  width: 120%px;
+  padding: 0;
+  margin: 0;
+  height: 1px;
+}
+#preview .wpfd_alt_wrapper .wpfd_categories_container .wpfd_cat {
+  position: relative;
+  padding: 15px 25px 15px 50px;
+  background: #fff;
+  margin: 10px;
+  box-shadow: 5px 5px 13px -10px #111;
+  font-weight: 700;
+  overflow: hidden;
+  -ms-text-overflow: ellipsis;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  -webkit-border-radius: 4px;
+  -moz-border-radius: 4px;
+  border-radius: 4px;
+  color: #404852;
+  flex: 0 1 calc(25% - 95px);
+}
+@media only screen and (max-width: 1024px) {
+  #preview .wpfd_alt_wrapper .wpfd_categories_container .wpfd_cat {
+    flex-basis: calc(100%/3 - 95px);
+  }
+}
+@media only screen and (max-width: 800px) {
+  #preview .wpfd_alt_wrapper .wpfd_categories_container .wpfd_cat {
+    flex-basis: calc(100%/2 - 95px);
+  }
+}
+@media only screen and (max-width: 768px) {
+  #preview .wpfd_alt_wrapper .wpfd_categories_container .wpfd_cat {
+    flex-basis: calc(100%/1 - 95px);
+  }
+}
+#preview .wpfd_alt_wrapper .wpfd_categories_container .wpfd_cat:before {
+  font-family: "Material Icons";
+  content: "folder";
+  display: block;
+  position: absolute;
+  left: 25px;
+  top: calc(50% - 10);
+  text-align: center;
+  text-indent: 0;
+  color: #888888;
+  font-size: 20px;
+  font-weight: normal;
+  line-height: 1;
+  white-space: nowrap;
+  word-wrap: normal;
+  direction: ltr;
+  vertical-align: middle;
+  -webkit-font-feature-settings: "liga";
+  -webkit-font-smoothing: antialiased;
+  width: 20px;
+  height: 20px;
+}
+#preview .wpfd_alt_wrapper .wpfd_categories_container .wpfd_cat.wpfd_new_category:after {
+  display: block;
+  content: "+";
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
+  font-size: 15px;
+  color: #ffffff;
+  position: absolute;
+  top: calc(50% - 10px);
+  left: 30px;
+  width: 20px;
+  height: 20px;
+}
+#preview .wpfd_alt_wrapper .wpfd_categories_container .wpfd_cat:hover {
+  cursor: pointer;
+}
+
+/*# sourceMappingURL=alternative.css.map */

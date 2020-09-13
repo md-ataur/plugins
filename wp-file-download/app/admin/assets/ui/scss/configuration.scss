@@ -1,0 +1,425 @@
+@import 'components/variables';
+@import 'components/mixin';
+@import 'components/scroll';
+@import 'components/minicolors';
+.ju-main-wrapper {
+  .ju-left-panel {
+    .tabs.ju-menu-tabs {
+      li.tab {
+        a.link-tab {
+          @include fontSize(16px);
+        }
+      }
+      & img {
+        width: calcRem(36px);
+        height: calcRem(22px);
+        vertical-align: sub;
+      }
+    }
+  }
+  .ju-right-panel {
+    .ju-content-wrapper {
+      font-family: $option-font;
+      .ju-heading {
+        font-weight: bold;
+        letter-spacing: calcRem(1.8px);
+        color: $heading-color;
+        clear: both;
+        text-transform: capitalize;
+        margin: 0 calcRem(25px);
+      }
+      .ju-settings-option {
+        padding: calcRem(10px) calcRem(20px);
+        &.placeholder {
+          background: none;
+          @include boxShadow(unset);
+          min-height: calcRem(70px);
+        }
+        &.allowedext {
+          height: calcRem(440px);
+          textarea {
+            height: 86%;
+          }
+        }
+        &.extension_viewer {
+          height: calcRem(160px);
+          textarea {
+            height: 62%;
+          }
+        }
+        @media (max-width: 1280px) {
+          &.placeholder {
+            background: none;
+            @include boxShadow(unset);
+            min-height: 0px;
+            height: 0px;
+            display: none;
+          }
+          &.allowedext {
+            height: auto;
+            textarea {
+              height: auto;
+            }
+          }
+        }
+        .ju-setting-label {
+          //@include fontSize(16px);
+          font-weight: bold;
+          letter-spacing: calcRem(0.5px);
+          color: $setting-color;
+          padding-right: calcRem(10px);
+        }
+
+        .ju-settings-toolbox {
+          display: inline-block;
+          float: right;
+          line-height: calcRem($input-line-height);
+          text-align: right;
+          @include fontSize(11.5px);
+
+          .ju-button {
+            padding: calcRem(5px) calcRem(10px);
+            @include fontSize(9px);
+            &.orange-outline-button {
+              border-color: $orange-color;
+            }
+            .material-icons {
+              @include fontSize(16px);
+              vertical-align: sub;
+              margin-right: calcRem(4px);
+            }
+          }
+        }
+        .ju-settings-help {
+          padding: calcRem(15px) 0;
+          float: left;
+          text-align: left;
+          color: $setting-help-color;
+          font-weight: 600;
+          letter-spacing: .7px;
+        }
+
+        .ju-radio-group {
+          display: inline-block;
+          float: right;
+          line-height: calcRem(46px);
+          .ju-radiobox {
+            margin-left: calcRem(10px);
+          }
+          .ju-radiobox:checked + span {
+            font-weight: bold;
+          }
+        }
+        .ju-input {
+          font-family: $option-font;
+          width: calcRem($input-min-width);
+          @include fontSize(14px);
+          letter-spacing: calcRem(0.8px);
+          color: $setting-color;
+          padding: calcRem(11px) calcRem(15px);
+          float: right;
+          line-height: calcRem(24.5px);
+          &.minicolors {
+            padding-left: calcRem(55px);
+            + .minicolors-swatch {
+              cursor: pointer;
+              @include borderRadius(calcRem($small-radius));
+            }
+          }
+        }
+        .minicolors-position-bottom {
+          .minicolors-panel {
+            top: calcRem(46px);
+          }
+        }
+        .minicolors {
+          float: right;
+          width: calcRem($input-min-width);
+        }
+
+        select.ju-input {
+          padding: calcRem(10px) calcRem(15px);
+          height: 100%;
+          border-radius: calcRem($small-radius);
+          float: right;
+        }
+        .ju-large-text {
+          width: 100%;
+        }
+        input[name="ref_statistics_storage_times"] {
+          width: 50px;
+          padding: 0.625rem 0.9375rem;
+          margin-right: 5px;
+          margin-top: 0.4px;
+          text-align: center;
+        }
+      }
+      form {
+        clear: both;
+        &::after {
+          clear: both;
+          display: block;
+        }
+        .ju-button[type='submit'] {
+          clear: both;
+          display: block;
+          margin: 0 calcRem(25px);
+        }
+        .controls-editor {
+          width: 100%;
+          margin-left: 0;
+        }
+
+        // Collapse for user roles
+        .ju-toggle.collapsed:after {
+          content: "";
+        }
+        .ju-toggle:not(.collapsed):after {
+          content: "";
+        }
+        .ju-toggle:after {
+          font-family: "Material Icons";
+          @include fontSize(24px);
+          vertical-align: sub;
+          padding-left: calcRem(10px);
+        }
+      }
+      h2 {
+        @include fontSize($h1-font-size);
+        line-height: calcRem(100px);
+      }
+      h3 {
+        @include fontSize($h1-font-size - #{calcRem(15px)});
+        line-height: calcRem(50px);
+      }
+      .ju-role-search {
+        position: relative;
+        width: calc(100% - #{calcRem(50px)});
+        padding: calcRem(15px) calcRem(25px) calcRem(15px) calcRem(40px);
+        margin: 0 calcRem(25px);
+        border: solid 0.5px rgba(186, 192, 213, 0.58);
+        @include borderRadius($small-radius);
+        @include boxShadow(0 20px 20px 0 rgba(186, 192, 213, 0.08));
+        .ju-role-search-icon {
+          color: rgba($heading-color, .5);
+          position: absolute;
+          right: calcRem(40px);
+          top: calcRem(15px);
+          &:hover {
+            cursor: pointer;
+          }
+        }
+        .ju-role-search-input {
+          width: 100%;
+          border: 0;
+          background: transparent;
+          box-shadow: none;
+        }
+      }
+    }
+    .ju-content-wrapper#wpfd-search-upload {
+      .ju-settings-option {
+        .chzn-choices {
+          padding: calcRem(6.5px);
+        }
+
+        @media screen and(max-width: 1400px) {
+          width: calc(100% - 3.125rem);
+        }
+      }
+    }
+    .ju-top-tabs-wrapper {
+      margin-bottom: calcRem(20px);
+    }
+    .save-message {
+      position: relative;
+      border-left: 4px solid #46b450;
+      border-top: 1px solid rgb(204, 208, 212);
+      border-right: 1px solid rgb(204, 208, 212);
+      border-bottom: 1px solid rgb(204, 208, 212);
+      background-color: #fff;
+      padding: 1px 38px 1px 12px ;
+      margin: 10px 0.9375rem 20px 0.9375rem;
+      width: calc(100% - 4.0625rem);
+      font-size: 13px;
+      @media screen and(max-width: 1280px) {
+        width: calc(100% - 3.125rem);
+      }
+      > p {
+        margin: 5px 0;
+        padding: 2px;
+        font-size: 1em;
+        font-weight: bold;
+        vertical-align: middle;
+      }
+      .cancel-btn {
+        position: absolute;
+        right: 1px;
+        border: none;
+        margin: 0;
+        padding: 9px;
+        background: none;
+        color: #72777c;
+        cursor: pointer;
+        transform: translateY(-50%);
+        top: 50%;
+      }
+      .cancel-btn:before {
+        background: none;
+        color: #72777c;
+        content: "\f153";
+        display: block;
+        font: normal 16px/20px dashicons;
+        speak: none;
+        height: 20px;
+        text-align: center;
+        width: 20px;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+      }
+      .cancel-btn:hover:before,
+      .cancel-btn:focus:before {
+        color: #c00;
+      }
+    }
+  }
+}
+
+.wpfd-search-indexer {
+  clear: both;
+  &.hide {
+    display: none;
+  }
+  button {
+    width: 100%;
+    line-height: calcRem(30px);
+    margin-top: calcRem(20px);
+    .wpfd_fts_status_bullet {
+      @include fontSize(25px);
+      vertical-align: sub;
+      line-height: calcRem(30px);
+      padding-right: calcRem(10px);
+    }
+    .wpfd_fts_white {
+      color: #ffffff;
+    }
+    .wpfd_fts_green {
+      color: #0099e5;
+    }
+    .wpfd_fts_red {
+      color: #ff0000;
+    }
+  }
+  .wpfd-icon-indexing {
+    display: inline-block;
+    vertical-align: middle;
+    width: calcRem(30px);
+    height: calcRem(30px);
+    margin-top: -#{calcRem(3px)};
+    background: transparent url('../images/icon-indexing.svg') no-repeat;
+  }
+}
+
+#wpfd-theme-cloud,
+#wpfd-theme-dropbox,
+#wpfd-theme-onedrive,
+#wpfd-theme-onedrive-business {
+  margin-top: calcRem(25px);
+  .ju-heading {
+    //width: 50%;
+    display: inline-block;
+    float: left;
+    font-size: calcRem(28px);
+  }
+}
+#wpfd-btnconnect-ggd,
+#wpfd-btnconnect-dropbox,
+#wpfd-btnconnect-onedrive,
+#wpfd-btnconnect-onedrive-business {
+  padding: 0 25px;
+  float: right;
+  //width: calc(50% - #{calcRem(50px)});
+  //text-align: right;
+  //margin: calcRem(15px) 0;
+}
+label[for="googleSyncMethod"],
+label[for="dropboxSyncMethod"],
+label[for="onedriveSyncMethod"],
+label[for="onedriveBusinessSyncMethod"]{
+  + .ju-radio-group {
+    width: 100%;
+    text-align: center;
+    display: flex !important;
+    flex-flow: row wrap;
+    label {
+      flex: 1;
+      line-height: calcRem(50px);
+    }
+  }
+}
+.ju-button-inline {
+  display: inline-block;
+  width: fit-content;
+  width: -moz-fit-content;
+  float: left;
+}
+.ggd-documentation,
+.dropbox-documentation,
+.onedrive-documentation,
+.onedrive-business-documentation{
+  margin-left: calcRem(10px);
+  margin-top: calcRem(1px);
+}
+.ju-settings-pre {
+  display: block;
+  float: left;
+  width: 100%;
+  border: 1px solid #ddd;
+  padding: 10px;
+  border-radius: 4px;
+  background: #ddd;
+  color: #f90900;
+  font-weight: bold;
+  font-family: monospace;
+  @include fontSize(10px);
+}
+.wpfd-float-message {
+  text-align: left;
+  color: rgb(255, 160, 0);
+  background: rgb(255, 255, 255);
+  clear: both;
+  border-left: 5px solid rgb(255, 160, 0);
+  width: calc(100% - #{calcRem(50px)});
+  padding: calcRem(10px) calcRem(20px);
+  margin: 0 calcRem(15px) calcRem(20px) calcRem(15px);
+  @include borderRadius(0 $small-radius $small-radius 0);
+  .wpfd-alert-message {
+    display: inline-block;
+    margin-right: 5px;
+  }
+}
+
+.rtl {
+  .ju-main-wrapper .ju-left-panel .tabs.ju-menu-tabs li.tab {
+    text-align: right;
+  }
+  .ju-main-wrapper .ju-left-panel .tabs.ju-menu-tabs li.tab a.link-tab:after {
+    right: unset;
+    left: calcRem(15px);
+  }
+  .ju-main-wrapper .ju-right-panel {
+    margin-left: 0;
+    margin-right: $panel-width;
+  }
+  #wpcontent {
+    padding-right: 0;
+  }
+  .ju-main-wrapper .ju-right-panel .ju-content-wrapper .ju-role-search .ju-role-search-icon {
+    right: unset;
+    left: calcRem(40px);
+  }
+  .wpfd-float-message {
+    left: 10px;
+    right: unset;
+  }
+}
