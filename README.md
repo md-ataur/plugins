@@ -1,4 +1,6 @@
-# plugins
+# Plugins
+
+## Assets Management (assets-ninja)
 
 ## Admin Settings
 1. Dropdown
@@ -20,4 +22,12 @@
 ## Tinyslider
 1. Nested shortcode
 
-## Assets Management (assets-ninja)
+## User Profile Meta Field
+
+## Taxonomy Meta Field
+1. Category Taxonomy Meta Field
+2. Tag Taxonomy Meta Field
+
+## Post/Page Taxonomy Meta Field
+1. Select posts
+2. Select tag

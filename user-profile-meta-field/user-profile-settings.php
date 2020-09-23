@@ -1,14 +1,14 @@
 <?php
 /**
- * Plugin Name:  User Profile Settings
+ * Plugin Name:  User Profile Meta Field
  * Plugin URI:
- * Description:  User Profile Settings
+ * Description:  User Profile Meta Field
  * Version:      1.0
  * Author:       Ataur Rahman
  * Author URI:
  * License:      GPL2
  * License URI:  https://www.gnu.org/licenses/gpl-2.0.html
- * Text Domain:  user-profile-settings
+ * Text Domain:  user-profile
  * Domain Path:  /languages
  */
 
@@ -23,16 +23,23 @@ if (!class_exists("UserProfile")) {
 		}
 
 		function usp_load_texdomain(){
-			load_plugin_textdomain( "user-profile-settings", false, plugin_dir_path( __FILE__ )."/languages" );
+			load_plugin_textdomain( "user-profile", false, plugin_dir_path( __FILE__ )."/languages" );
 		}
 
 		function usp_user_contact_methods($methods){
-			$methods['facebook'] = __("Facebook","user-profile-settings");
-			$methods['linkedin'] = __("Linked In","user-profile-settings");
-			$methods['twitter'] = __("Twitter","user-profile-settings");
+			$methods['facebook'] = __("Facebook","user-profile");
+			$methods['linkedin'] = __("Linked In","user-profile");
+			$methods['twitter'] = __("Twitter","user-profile");
 			return $methods;
 		}
 	}
 
 	new UserProfile();
 }
+
+
+/**
+ * How to show user meta field value in content.php
+ * ------------------------------------------------ 
+ * echo esc_url(get_the_author_meta('facebook'));
+ */
