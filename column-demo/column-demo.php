@@ -1,8 +1,8 @@
 <?php
 /**
- * Plugin Name:  Column Demo
+ * Plugin Name:  Posts Column Demo
  * Plugin URI:
- * Description:  Column Demo
+ * Description:  Posts Column Demo
  * Version:      1.0
  * Author:       Ataur Rahman
  * Author URI:
@@ -48,10 +48,13 @@ if (!class_exists("ColumnDemo")) {
 
 		/* Callback function for Column add */
 		function clmd_column_add($columns){				
-			/*unset($columns['tags']);
+			/* Posts column order change
+			----------------------------			
+			unset($columns['tags']);
 			$columns['tags'] = 'Tags';				
 			unset($columns['date']);			
-			$columns['date'] = 'Date';*/
+			$columns['date'] = 'Date';
+			*/
 			$columns['id'] = __('Post ID','column-demo');	
 			$columns['thumbnail'] = __('Thumbnail','column-demo');
 			$columns['wordcount'] = __('Word Count','column-demo');
@@ -62,17 +65,17 @@ if (!class_exists("ColumnDemo")) {
 		/* Callback function for Data show on the column */
 		function clmd_column_data($column, $post_id){
 			if ("id" == $column) {
-				echo $post_id;
+				echo esc_html( $post_id );
 			}else if("thumbnail" == $column){
-				$thumbnail = get_the_post_thumbnail( $post_id, array(100,100) );
+				$thumbnail = get_the_post_thumbnail($post_id, array(100,100));
 				echo $thumbnail;
 			}else if("wordcount" == $column){
 				$_post = get_post($post_id);				
 				$content = $_post->post_content;
 				$wordn = str_word_count(strip_tags($content));
-				echo $wordn;
-			}
-			
+				/* If you don't use the strip_tags function then HTML, PHP tag will be counted */
+				echo esc_html( $wordn );
+			}			
 		}
 
 
@@ -87,17 +90,19 @@ if (!class_exists("ColumnDemo")) {
 				return;
 			}
 			$filter_value = isset($_GET['demofilter']) ? $_GET['demofilter'] : '';
+			
+			/* Filter title */
 			$values = array(
 				'0' => __('Select Status','column-demo'),
 				'1' => __('Some Posts','column-demo'),
-				'2' => __('Taxonomy Terms','column-demo')
+				'2' => __('Some Posts ++','column-demo')
 			);
 
 			?>
 			<select name="demofilter">
 				<?php
 					foreach ($values as $key => $value) {					
-						printf("<option value='%s' %s>%s</optoin>",$key,$key == $filter_value?"selected":'',$value);
+						printf("<option value='%s' %s>%s</optoin>", $key, $key == $filter_value ? "selected" : '', $value);
 					}
 				?>
 			</select>
@@ -108,18 +113,15 @@ if (!class_exists("ColumnDemo")) {
 		function clmd_filter_data($wpquery){
 			if (!is_admin()) {
 				return;
-			}
-			
+			}			
 			$filter_value = isset($_GET['demofilter']) ? $_GET['demofilter'] : '';
 			if ('1' == $filter_value) {
-				$wpquery->set('post__in', array(1,395,399));
+				$wpquery->set('post__in', array(1,2,3)); // Posts id
 			}else if ('2' == $filter_value) {
-				$wpquery->set('post__in', array(401,393));
+				$wpquery->set('post__in', array(4,5)); // Posts id
 			}
-
 			return $wpquery;
 		}
-
 
 
 		/**
@@ -143,14 +145,12 @@ if (!class_exists("ColumnDemo")) {
 			<select name="thumfilter">
 				<?php
 					foreach ($values as $key => $value) {					
-						printf("<option value='%s' %s>%s</optoin>",$key,$key == $filter_value?"selected":'',$value);
+						printf("<option value='%s' %s>%s</optoin>",$key, $key == $filter_value ? "selected" : '',$value);
 					}
 				?>
 			</select>
 			<?php
 		}
-
-
 
 		/* Callback function for data filtering */
 		function clmd_thumbfilter_data($wpquery){

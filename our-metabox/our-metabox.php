@@ -1,8 +1,8 @@
 <?php
 /**
- * Plugin Name:  OurMetaBox
+ * Plugin Name:  Our MetaBox
  * Plugin URI:
- * Description:  Our meta box
+ * Description:  Our MetaBox
  * Version:      1.0
  * Author:       Ataur Rahman
  * Author URI:

@@ -19,8 +19,11 @@ if (!class_exists("AcfDemo")) {
 	class AcfDemo{
 
 		function __construct(){
-			require_once plugin_dir_path( __FILE__ ) . 'lib/class-tgm-plugin-activation.php';
-			add_action( "plugins_loaded", array( $this,"acfd_load_textdomain" ) );
+			/* Tgm library include */
+			require_once plugin_dir_path( __FILE__ ) . 'lib/class-tgm-plugin-activation.php';			
+			/* Hook for plugin loaded */
+			add_action( "plugins_loaded", array( $this,"acfd_load_textdomain" ) );			
+			/* Hook for tgm register */
 			add_action( "tgmpa_register", array( $this,"acfd_register_required_plugins" ));
 		}
 
