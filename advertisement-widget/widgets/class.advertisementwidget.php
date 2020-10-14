@@ -1,8 +1,7 @@
 <?php
 
 /**
- * Advertisement Widget
- * Hasin Hayder
+ * Advertisement Widget 
  */
 class AdvertisementWidget extends WP_Widget{
 
@@ -11,9 +10,9 @@ class AdvertisementWidget extends WP_Widget{
      */
     public function __construct(){
         parent::__construct(
-            'demowidget_advertisement', // Base ID
-            __('Advertisement Widget','demowidget'), // Name
-            array('description' => __('Add advertisement blocks', 'demowidget'),) // Args
+            'advertisement_widget', // Base ID
+            __('Advertisement Widget', 'advertisement-widget'), // Name
+            array('description' => __('Add advertisement blocks', 'advertisement-widget')) // Args
         );
     }
 
@@ -46,9 +45,9 @@ class AdvertisementWidget extends WP_Widget{
             <div class="about-info">
                 <?php if($display_image){?>
                     <?php if($instance['url']){?>
-                        <a target="_blank" href='<?php echo esc_url($instance['url']);?>'><img alt="<?php _e('Advertisements','demowidget');?>" src="<?php echo esc_url($image_src[0]);?>"></a>
+                        <a target="_blank" href='<?php echo esc_url($instance['url']);?>'><img alt="<?php _e('Advertisements','advertisement-widget');?>" src="<?php echo esc_url($image_src[0]);?>"></a>
                     <?php } else {?>
-                        <img alt="<?php _e('Advertisements','demowidget');?>" src="<?php echo esc_url($image_src[0]);?>">
+                        <img alt="<?php _e('Advertisements','advertisement-widget');?>" src="<?php echo esc_url($image_src[0]);?>">
                     <?php } ?>
                 <?php } ?>
             </div>
@@ -69,9 +68,9 @@ class AdvertisementWidget extends WP_Widget{
      */
     public function update($new_instance, $old_instance){
         $instance = array();
-        $instance['title'] = sanitize_text_field($new_instance['title']);
-        $instance['image'] = sanitize_text_field($new_instance['image']);
-        $instance['url'] = sanitize_text_field($new_instance['url']);
+        $instance['title']  = sanitize_text_field($new_instance['title']);
+        $instance['image']  = sanitize_text_field($new_instance['image']);
+        $instance['url']    = sanitize_text_field($new_instance['url']);
 
         return $instance;
     }
@@ -84,32 +83,30 @@ class AdvertisementWidget extends WP_Widget{
      * @param array $instance Previously saved values from database.
      */
     public function form($instance){
-
-	    $title = isset($instance['title'])?$instance['title']:__('Advertisement Block', 'demowidget');
-
+        /* echo "<pre>";
+        print_r($instance);
+        echo "<pre>"; */
+	    $title = isset($instance['title'])?$instance['title']:__('Advertisement Block', 'advertisement-widget');
         if(!isset($instance['url'])) {
         	$instance['url'] = "";
         }
         if(!isset($instance['image'])) {
         	$instance['image'] = "";
         }
-
         ?>
         <p>
-            <label for="<?php echo esc_attr($this->get_field_id('title')); ?>"><?php _e('Title:','demowidget'); ?></label>
-            <input class="widefat" id="<?php echo esc_attr($this->get_field_id('title')); ?>"
-                   name="<?php echo esc_attr($this->get_field_name('title')); ?>" type="text"
-                   value="<?php echo esc_attr($title); ?>"/>
+            <label for="<?php echo esc_attr($this->get_field_id('title')); ?>"><?php _e('Title:','advertisement-widget'); ?></label>
+            <input class="widefat" id="<?php echo esc_attr($this->get_field_id('title')); ?>" name="<?php echo esc_attr($this->get_field_name('title')); ?>" type="text" value="<?php echo esc_attr($title); ?>"/>
         </p>
         <p>
-            <label for="<?php echo esc_attr($this->get_field_id('image')); ?>"><?php _e('Image:','demowidget'); ?></label>
+            <label for="<?php echo esc_attr($this->get_field_id('image')); ?>"><?php _e('Image:','advertisement-widget'); ?></label>
             <br/>
             <p class="imgpreview"></p>
-            <input class="imgph" type="hidden" id="<?php echo esc_attr($this->get_field_id('image')); ?>" name="<?php echo esc_attr($this->get_field_name('image')); ?>"  value="<?php echo esc_attr($instance['image']);?>"  />
-            <input type="button" class="button btn-primary widgetuploader" value="<?php _e('Add Image','demowidget'); ?>" />
+            <input class="imgph" type="hidden" id="<?php echo esc_attr($this->get_field_id('image')); ?>" name="<?php echo esc_attr($this->get_field_name('image')); ?>" value="<?php echo esc_attr($instance['image']);?>"  />
+            <input type="button" class="button btn-primary widgetuploader" value="<?php _e('Add Image','advertisement-widget'); ?>" />
         </p>
         <p>
-            <label for="<?php echo esc_attr($this->get_field_id('url')); ?>"><?php _e('Target URL:','demowidget'); ?></label>
+            <label for="<?php echo esc_attr($this->get_field_id('url')); ?>"><?php _e('Target URL:','advertisement-widget'); ?></label>
             <br/>
             <input class="widefat" type="url" id="<?php echo esc_attr($this->get_field_id('url')); ?>" name="<?php echo esc_attr($this->get_field_name('url')); ?>" value="<?php echo esc_attr($instance['url']);?>" />
         </p>

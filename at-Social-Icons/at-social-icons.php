@@ -19,7 +19,7 @@ class ATSocialIcons extends WP_Widget
     public function __construct()
     {
     	/**
-		 * Sets up the widgets name etc
+		 * Register widget with WordPress
 		 */
         parent::__construct(
             'socialicons', // Base ID
@@ -43,7 +43,7 @@ class ATSocialIcons extends WP_Widget
 
 
     /**
-	 * Front-end display of widget.
+	 * Front-end display.
 	 *
 	 * @see WP_Widget::widget()
 	 *

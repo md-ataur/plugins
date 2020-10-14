@@ -1,6 +1,6 @@
 <?php
 /*
-Plugin Name: DemoDashboard Widget
+Plugin Name: Dashboard Widget
 Plugin URI:
 Description:
 Version: 1.0
@@ -17,25 +17,24 @@ function ddw_load_textdomain() {
 }
 add_action( 'plugins_loaded', 'ddw_load_textdomain' );
 
-
-function ddw_dashboard_widget() {
+function dashboard_widget() {
 	if ( current_user_can( 'edit_dashboard' ) ) {
-		wp_add_dashboard_widget( 'demodashboardwidget',
+		wp_add_dashboard_widget( 'dashboardwidget_id',
 			__( 'Dashboard Widget', 'dashboardwidget' ),
-			'ddw_dashboardwidget_output',
-			'ddw_dashboardwidget_configure'
+			'dashboardwidget_output',
+			'dashboardwidget_configure'
 		);
-	} else {
-		wp_add_dashboard_widget( 'demodashboardwidget',
+	}else {
+		wp_add_dashboard_widget( 'dashboardwidget_id',
 			__( 'Dashboard Widget', 'dashboardwidget' ),
-			'ddw_dashboardwidget_output'
+			'dashboardwidget_output'
 		);
 	}
 }
-add_action( 'wp_dashboard_setup', 'ddw_dashboard_widget' );
+add_action( 'wp_dashboard_setup', 'dashboard_widget' );
 
-
-function ddw_dashboardwidget_output() {
+// Widget Output
+function dashboardwidget_output() {
 	$number_of_posts = get_option( 'dashboardwidget_nop', 5 );
 	$feeds           = array(
 		array(
@@ -49,12 +48,15 @@ function ddw_dashboardwidget_output() {
 	wp_dashboard_primary_output( 'dashboardwidget', $feeds );
 }
 
-
-function ddw_dashboardwidget_configure() {
+// Widget Configure
+function dashboardwidget_configure() {
 	$number_of_posts = get_option( 'dashboardwidget_nop', 5 );
-	if ( isset( $_POST['dashboard-widget-nonce'] ) && wp_verify_nonce( $_POST['dashboard-widget-nonce'], 'edit-dashboard-widget_demodashboardwidget' ) ) {
+	
+	/* Nonce check */
+	if ( isset( $_POST['dashboard-widget-nonce'] ) && wp_verify_nonce( $_POST['dashboard-widget-nonce'], 'edit-dashboard-widget_dashboardwidget_id' ) ) {
 		if ( isset( $_POST['ddw_nop'] ) && $_POST['ddw_nop'] > 0 ) {
 			$number_of_posts = sanitize_text_field( $_POST['ddw_nop'] );
+			// data save to the database
 			update_option( 'dashboardwidget_nop', $number_of_posts );
 		}
 	}

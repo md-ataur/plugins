@@ -1,25 +1,32 @@
 (function ($) {
+    
     "use strict";
+    
     $(document).ready(function () {
         $(document).on('widget-updated',function(event,widget){
-            var widget_id = $(widget).attr('id');
-            if(widget_id.indexOf('demowidget_advertisement')!=-1){
+            var widget_id = $(widget).attr('id');            
+            if(widget_id.indexOf('advertisement_widget')!=-1){
                 prefetch();
             }
         });
 
-        $("body").off("click",".widgetuploader");
-        $("body").on("click",".widgetuploader", function () {
-
-            var that = this;
-
+        /**
+         * Event delegation
+         * ----------------
+         * The idea of event delegation is simple. Instead of attaching the event listeners directly to the buttons, you delegate listening to the parent <div id="buttons"> . When a button is clicked, the listener of the parent element catches the bubbling event
+         */
+        $("body").off("click",".widgetuploader"); // Event listener off for the first time
+        $("body").on("click",".widgetuploader", function () {            
+            var that = this; // Reference of the ".widgetuploader"
+            
             var file_frame = wp.media.frames.file_frame = wp.media({
                 frame: 'post',
                 state: 'insert',
                 multiple: false
-            });
+            }); // Media popup on
 
-            file_frame.on('insert', function () {
+            // "Insert" event listener
+            file_frame.on('insert', function () { 
                 var data = file_frame.state().get('selection');               
                 var jdata = data.toJSON();
                 var selected_ids = _.pluck(jdata, "id");
@@ -39,11 +46,13 @@
                             //console.log(attachment.attributes.sizes);
                             container.append("<img src='" + attachment.attributes.sizes.thumbnail.url + "'/>");
                         } catch (e) {
+                            
                         }
                     }
                 });
             });
 
+            // In media frame image file selected
             file_frame.on('open', function () {
                 var selection = file_frame.state().get('selection');
                 var ats = $(that).prev("input").val().split(",");
@@ -57,10 +66,11 @@
             file_frame.open();
         });
 
+        // Image preview
         function prefetch(){
             $(".imgph").each(function(){
                 var attid = $(this).val();
-                var container= $(this).prev();
+                var container = $(this).prev();
                 container.html("");
                 if(attid){
                     $(this).next().val("Change Image");
@@ -72,10 +82,11 @@
             });
         }
 
+        // Customizer 
         if(wp.customize !== undefined){
             $(".customize-control").on("expand",function(e){
                 var widget_id = $(this).attr('id');
-                if(widget_id.indexOf('demowidget_advertisement')!==-1){
+                if(widget_id.indexOf('advertisement_widget')!==-1){
                     prefetch();
                 }
             });
