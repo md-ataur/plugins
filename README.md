@@ -51,3 +51,10 @@ This options demo page code written by myself.
 ## Widget
 1. Advertisement Widget
 2. Dashboard Widget
+
+## Popup Creator
+
+## Data Table
+1. Data Search
+2. Data Filter
+3. Data Paginate

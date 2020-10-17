@@ -228,7 +228,7 @@ class Piklist_Meta
   {
     extract($arguments);
 
-    $textdomain = isset(piklist_add_on::$available_add_ons[$add_on]['TextDomain']) ? piklist_add_on::$available_add_ons[$add_on]['TextDomain'] : null;
+    $textdomain = isset(piklist_add_on::$available_add_ons[$add_on]['text_domain']) ? piklist_add_on::$available_add_ons[$add_on]['text_domain'] : null;
     $title = !empty($data['title']) ? $data['title'] : $id;
     $title = !empty($textdomain) ? __($title, $textdomain) : __($title);
     $types = empty($data['post_type']) ? get_post_types() : $data['post_type'];
@@ -349,7 +349,7 @@ class Piklist_Meta
         {
           foreach ($wp_meta_boxes[$current_screen->id][$context][$priority] as $meta_box)
           {
-            if ($meta_box['id'] == $part['id'] && (!isset($part['data']['post_type']) || ($part['data']['post_type'] && in_array($current_screen->id, $part['data']['post_type']))))
+			if (!empty($meta_box['id']) && !empty($part['id']) && $meta_box['id'] == $part['id'] && (!isset($part['data']['post_type']) || ($part['data']['post_type'] && in_array($current_screen->id, $part['data']['post_type']))))
             {
               if (is_array($part['render']) && !in_array($meta_box, $part['render']))
               {

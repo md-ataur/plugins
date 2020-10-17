@@ -9,8 +9,8 @@ $data =
 		'sex'=>'M'
 	],[
 		'id'=>2,
-		'name'=>'Jane Doe',
-		'email'=>'jane@doe.com',
+		'name'=>'Abida',
+		'email'=>'abida@doe.com',
 		'age'=>24,
 		'sex'=>'F'
 	],[
@@ -21,8 +21,8 @@ $data =
 		'sex'=>'M'
 	],[
 		'id'=>4,
-		'name'=>'Jessy Doe',
-		'email'=>'jessy@doe.com',
+		'name'=>'Jarin Khan',
+		'email'=>'jarin@doe.com',
 		'age'=>26,
 		'sex'=>'F'
 	],[
