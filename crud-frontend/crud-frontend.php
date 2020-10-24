@@ -246,6 +246,7 @@ if(!class_exists('CrudAjaxReservationForm')){
 	}
 
 	new CrudAjaxReservationForm;
+
 }
 
 

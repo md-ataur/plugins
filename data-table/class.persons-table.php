@@ -53,14 +53,14 @@ class PersonsTable extends WP_List_Table{
 	function prepare_items(){
 		$this->_column_headers = array($this->get_columns(), array(), $this->get_sortable_columns());
 		
-		/* Pagination */		
+		/* Pagination */
 		$this->set_pagination_args([
 			'total_items' => count($this->persons),
-			'per_page' => 2,
-			'total_pages' => ceil(count($this->persons) / 2)
+			'per_page' => 3,
+			'total_pages' => ceil(count($this->persons) / 3)
 		]);
 		$paged = $_REQUEST['paged'] ?? 1; // null clues operator in php7
-		$data_chumnks = array_chunk($this->persons, 2);	// Split an array 	
+		$data_chumnks = array_chunk($this->persons, 3);	// Split an array 	
 		$this->items = $data_chumnks[$paged - 1];
 	}
 

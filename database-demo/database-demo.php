@@ -12,12 +12,14 @@ Text Domain: database-demo
 */
 
 defined( 'ABSPATH' ) or die( 'No script kiddies please!' );
+
 require_once('class.dbdemo-users.php');
 
 define('DBDEMO_VERSION', '1.1');
 
 /* Table create */
 function dbdemo_init(){
+	/* Global object $wpdb */
 	global $wpdb;
 	$table_name = $wpdb->prefix.'persons';
 	$sql = "CREATE TABLE {$table_name} (
@@ -26,9 +28,15 @@ function dbdemo_init(){
 			email VARCHAR(250),
 			PRIMARY KEY (id)
 	);";
-	require_once(ABSPATH. "wp-admin/includes/upgrade.php");
+	
+	/* Upgrade file include for dbDelta */
+	require_once(ABSPATH. "wp-admin/includes/upgrade.php");	
+	
+	/* dbDelta is a especial function for column add */
 	dbDelta($sql);
-	add_option( 'DBDEMO_VERSION',DBDEMO_VERSION );
+	
+	/* Option table */
+	add_option( 'DBDEMO_VERSION', DBDEMO_VERSION );
 
 	/* Version Check */
 	if (get_option( 'DBDEMO_VERSION')!= DBDEMO_VERSION) {
@@ -45,7 +53,7 @@ function dbdemo_init(){
 }
 register_activation_hook( __FILE__, "dbdemo_init" );
 
-/* Initially Data load */
+/* Initially Data load when plugin is activate */
 function dbdemo_load_data(){
 	global $wpdb;
 	$table_name = $wpdb->prefix.'persons';
@@ -60,7 +68,7 @@ function dbdemo_load_data(){
 }
 register_activation_hook( __FILE__, "dbdemo_load_data" );
 
-/* Data Flush */
+/* Data Flush when plugin is deactivate */
 function dbdemo_flush_data(){
 	global $wpdb;
 	$table_name = $wpdb->prefix.'persons';
@@ -69,6 +77,7 @@ function dbdemo_flush_data(){
 }
 register_deactivation_hook( __FILE__, "dbdemo_flush_data" );
 
+/* Admin enqueue scripts */
 add_action( 'admin_enqueue_scripts', function ( $hook ) {
 	if ( "toplevel_page_dbdemo" == $hook ) {
 		wp_enqueue_style( 'dbdemo-style', plugin_dir_url( __FILE__ ) . 'assets/css/form.css' );
@@ -79,8 +88,10 @@ add_action( 'admin_enqueue_scripts', function ( $hook ) {
 add_action( 'admin_menu', function(){
 	add_menu_page( 'DB Demo', 'DB Demo', 'manage_options', 'dbdemo', 'dbdemo_admin_page' );
 } );
+
 function dbdemo_admin_page(){
 	global $wpdb;
+	
 	if (isset($_GET['action']) && $_GET['action'] == 'delete') {
 		$wpdb->delete("{$wpdb->prefix}persons", ['id'=>sanitize_key($_GET['id'])]);
 		$_GET['id'] = null;
@@ -103,8 +114,11 @@ function dbdemo_admin_page(){
         </div>
         <div class="form_box_content">
 			<form action="<?php echo admin_url( 'admin-post.php' ); ?>" method="post">
+				
 				<?php wp_nonce_field('dbdemo','nonce'); ?>
+				
 				<input type="hidden" name="action" value="dbdemo_add_record">
+
 				<div>
 					<label><strong><?php _e('Name','database-demo');?></strong></label>
 					<input type="text" class="form_text" name="name" required value="<?php if($id) echo $result->name;?>">
@@ -137,7 +151,9 @@ function dbdemo_admin_page(){
 			</form>
 		</div>
 	</div>
-	<div class="form_box mt-5">
+
+	<!-- Users data display -->
+	<div class="form_box" style="margin-top:15px;">
         <div class="form_box_header">
 			<?php _e( 'Users Data', 'database-demo' ) ?>
         </div>
@@ -154,6 +170,11 @@ function dbdemo_admin_page(){
     </div>
 	<?php
 }
+
+/**
+ * You have set input hidden value 'dbdemo_add_record' with 'admin_post_' hoook 
+ * add_action('admin_post_{$action}');
+ */
 
 add_action( 'admin_post_dbdemo_add_record', function () {
 	global $wpdb;

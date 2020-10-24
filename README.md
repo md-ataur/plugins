@@ -58,3 +58,10 @@ This options demo page code written by myself.
 1. Data Search
 2. Data Filter
 3. Data Paginate
+
+## Database Demo
+1. Data Insert
+2. Data Edit/Update
+3. Data Delete
+4. Data Paginate
+5. Data show with data table
