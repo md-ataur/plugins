@@ -65,3 +65,13 @@ This options demo page code written by myself.
 3. Data Delete
 4. Data Paginate
 5. Data show with data table
+
+## Admin Notice (notice-ninja)
+
+## Plugin action link (plugin-action)
+After activated your plugin, its redirect to the settings page of the plugin. 
+1. Action link add
+2. Row link add
+
+## Carbon Test
+Carbon fields is a library which enables easy creation of custom (meta) fields in the WordPress administration panel. This library gutenberg compatible
