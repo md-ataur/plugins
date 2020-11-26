@@ -1,0 +1,9 @@
+.block__heading{
+    color:rgb(155, 23, 63);
+}
+.accordion-container .title{
+    cursor: pointer;
+}
+.carousel-container .carousel-item{
+    width: 100%;
+}
