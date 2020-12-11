@@ -12,8 +12,6 @@
  * Domain Path:  /languages
  */
 
-
-
 if (!class_exists("AcfDemo")) {
 	
 	class AcfDemo{
@@ -56,7 +54,6 @@ if (!class_exists("AcfDemo")) {
 
 			tgmpa( $plugins, $config );
 		}
-
 	}
 	new AcfDemo();
 }

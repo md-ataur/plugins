@@ -91,24 +91,26 @@ echo "Author: " .carbon_get_post_meta('2','crbtest_author') ."</br>"; // Specifi
     
 // If this is theme_options
 ---------------------------
-if(carbon_get_theme_option('crbtest_show_content') == '1'){
-    echo "Author: " .carbon_get_theme_option('crbtest_author') ."</br>";	
-    // Image
-    $img_source = wp_get_attachment_image_src(carbon_get_theme_option('crbtest_image'), 'thumbnail');
-    echo "<img width='150' height='150' src='".esc_url($img_source[0])."'>";
-    // Gallery	
-    echo "<ul>";				
-    foreach (carbon_get_theme_option('crbtest_media_gallery') as $image) {						
-        echo "<li>".wp_get_attachment_image($image)."</li>";
-    }	
-    echo "</ul>";
-    // Multi Color
-    foreach (carbon_get_theme_option('crbtest_available_colors') as $color) {						
-        echo strtoupper($color)."<br>";
-    }
-    // Repeater field
-    foreach (carbon_get_theme_option('crbtest_repeater') as $data) {						
-        echo $data['title']."<br>";
-        echo wp_get_attachment_image($data['photo']);
+if ( function_exists( 'carbon_field_exists' ) ) {
+    if(carbon_get_theme_option('crbtest_show_content') == '1'){
+        echo "Author: " .carbon_get_theme_option('crbtest_author') ."</br>";	
+        // Image
+        $img_source = wp_get_attachment_image_src(carbon_get_theme_option('crbtest_image'), 'thumbnail');
+        echo "<img width='150' height='150' src='".esc_url($img_source[0])."'>";
+        // Gallery	
+        echo "<ul>";				
+        foreach (carbon_get_theme_option('crbtest_media_gallery') as $image) {						
+            echo "<li>".wp_get_attachment_image($image)."</li>";
+        }	
+        echo "</ul>";
+        // Multi Color
+        foreach (carbon_get_theme_option('crbtest_available_colors') as $color) {						
+            echo strtoupper($color)."<br>";
+        }
+        // Repeater field
+        foreach (carbon_get_theme_option('crbtest_repeater') as $data) {						
+            echo $data['title']."<br>";
+            echo wp_get_attachment_image($data['photo']);
+        }
     }
 }*/

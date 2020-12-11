@@ -29,7 +29,7 @@ add_action( 'wp_ajax_transient_display_result', function () {
     global $transient;
     //$table_name = $transient->prefix . 'persons';
     if ( wp_verify_nonce( $_POST['nonce'], 'transient_display_result' ) ) {
-        $task = $_POST['task'];
+        $task = $_POST['task'];        
         // Transient data add
         if ( 'add-transient' == $task ) {
             $key = 'tr-country';

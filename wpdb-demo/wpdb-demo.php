@@ -47,8 +47,7 @@ add_action( 'wp_ajax_display_result', function () {
     global $wpdb;
     $table_name = $wpdb->prefix . 'persons';
     if ( wp_verify_nonce( $_POST['nonce'], 'display_result' ) ) {
-        $task = $_POST['task'];
-        
+        $task = $_POST['task'];        
         // Data Insert
         if ( 'add-new-record' == $task ) {
             $person = array(

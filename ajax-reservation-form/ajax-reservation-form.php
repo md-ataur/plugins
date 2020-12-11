@@ -67,8 +67,7 @@ if ( !class_exists( 'AjaxReservationForm' ) ) {
                     wp_insert_post( $reservation_arrg, $wp_error );
                     if ( !$wp_error ) {
                         echo "Successfully reserved";
-                    }
-                    
+                    }                    
                     $email_message = wp_sprintf( "From: %s \nEmail: %s \nPhone: %s \nPersons: %s \nTime: %s \nMessage: %s", $name, $email, $phone, $person, $time, $message );
                     //$admin_email = get_option('admin_email');
                     wp_mail( 'contact@onlivetech.com', $name, $email_message );
@@ -83,6 +82,7 @@ if ( !class_exists( 'AjaxReservationForm' ) ) {
             ?>
 			<div class="container">
 				<div class="col-md-6 offset-md-3">
+                    <h2>Ajax Reservation Form</h2>
 					<div id="msg"></div>
 	                <form action="<?php the_permalink();?>" id="Rform">
 	                	<?php wp_nonce_field( 'rsf_nonce_action', 'rsf_nonce_field' );?>

@@ -56,6 +56,7 @@ if (!class_exists('AjaxContactForm')) {
 			?>
 			<div class="container">
 				<div class="col-md-6 offset-md-3">	
+					<h2>Ajax Contact Form</h2>
 					<div id="msg"></div>
 					<form action="<?php the_permalink(); ?>" method="post" id="cform">
 						<?php wp_nonce_field('nonce_action','nonce_field'); ?>
@@ -102,8 +103,13 @@ if (!class_exists('AjaxContactForm')) {
 			<?php
 		}
 		public function ajax_shortcode(){
+			// Turn on output buffering.
 			ob_start();
-			self::ajaxForm();			
+			
+			// echo the form
+			self::ajaxForm(); 
+			 
+			// Turn off output buffering and then return the output echoed via the above functions.
 			return ob_get_clean();
 		}		
 	}

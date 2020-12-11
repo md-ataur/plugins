@@ -3,7 +3,7 @@
 		$('#cfSubmit').on('click', function() {
 			$.post(curl.ajaxurl, {
 				action: 'ajaxCForm',
-				nonce: $('#nonce_field').val(),
+				nonce:  $('#nonce_field').val(),
 				cFName: $('#cFName').val(),
 				cLName: $('#cLName').val(),
 				cSubject: $('#cSubject').val(),
