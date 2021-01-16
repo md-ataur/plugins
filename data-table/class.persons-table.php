@@ -5,13 +5,13 @@ if (!class_exists("WP_List_Table")) {
 
 class PersonsTable extends WP_List_Table{
 
-	private $persons;
+	private $_items;
 
 	function set_data($data){				
-		$this->persons = $data;		
+		$this->_items = $data;		
 	}
 
-	/* Columns Name show */
+	/* Column Names show */
 	function get_columns(){
 		return [
 			'cb'=>'<input type="checkbox">',
@@ -41,27 +41,33 @@ class PersonsTable extends WP_List_Table{
 				<option value="F">Females</option>
 			</select>
 			<?php
-				// WP builtin button
-                submit_button( __( 'Filter', 'tabledata' ), 'button', 'submit', false );
-                ?>
+			// WP builtin button
+			submit_button( __( 'Filter', 'tabledata' ), 'button', 'submit', false );
+            ?>
 		</div>
 		<?php
 		endif;
 	}
 
-	/* Prepare method */
+	/* Prepare the items */
 	function prepare_items(){
 		$this->_column_headers = array($this->get_columns(), array(), $this->get_sortable_columns());
 		
 		/* Pagination */
+		$perpage = 5;
+		$total_items = count($this->_items);
+		$current_page = $this->get_pagenum();		
+		$offset       = ( $current_page - 1 ) * $perpage;
+		
 		$this->set_pagination_args([
-			'total_items' => count($this->persons),
-			'per_page' => 3,
-			'total_pages' => ceil(count($this->persons) / 3)
-		]);
-		$paged = $_REQUEST['paged'] ?? 1; // null clues operator in php7
-		$data_chumnks = array_chunk($this->persons, 3);	// Split an array 	
-		$this->items = $data_chumnks[$paged - 1];
+			'total_items'=>$total_items,
+			'per_page'=>$perpage
+		]);		
+		
+		$data = array_slice($this->_items, $offset, $perpage);
+
+		/* Assign the table data inside the items variable */
+		$this->items = $data;
 	}
 
 	/* Get columns value */

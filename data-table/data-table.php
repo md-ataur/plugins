@@ -51,7 +51,7 @@ function display_table(){
 	// Class object
 	$table = new PersonsTable;	
 
-	/* Sorting */
+	/* Sorting orderby = Column Name and order = Asc or Desc */
 	$orderby = $_REQUEST['orderby'] ?? '';
 	$order = $_REQUEST['order'] ?? '';	
 

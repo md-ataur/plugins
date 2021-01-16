@@ -1,0 +1,20 @@
+{
+    "name": "mdataur/wedevs-tutorial",
+    "description": "A tutorial plugin for weDevs",
+    "type": "wp-plugin",
+    "license": "GPLv2",
+    "authors": [
+        {
+            "name": "md-ataur",
+            "email": "mdataur15@gmail.com"
+        }
+    ],
+    "minimum-stability": "dev",
+    "require": {},
+    "autoload": {
+        "psr-4": {
+            "WeDevs\\Tutorial\\": "includes/"
+        },
+        "files": ["includes/functions.php"]
+    }
+}

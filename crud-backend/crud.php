@@ -47,9 +47,10 @@ function crud_table_init(){
 			email VARCHAR(250),
 			PRIMARY KEY (id)
 		);";
-		/* Table column delete */
+		// Table column delete
 		$wpdb->query( "ALTER TABLE $table_name DROP COLUMN phone" );
 		dbDelta( $sql );
+		// Version update
 		update_option( 'CRUD_VERSION', CRUD_VERSION );
 	}
 
@@ -103,10 +104,8 @@ function crud_admin_page(){
         </div>
         <div class="form_box_content">
 			<form action="<?php echo admin_url('admin-post.php');?>" method="post">	
-
-				<input type="hidden" name="action" value="crud_add_record">				
-				<?php wp_nonce_field("crud","nonce");?>
-				
+				<input type="hidden" name="action" value="crud_add_record">
+				<?php wp_nonce_field("crud","nonce");?>				
 				<div>
 					<label><strong><?php _e('Name','database-demo');?></strong></label>
 					<input type="text" class="form_text" name="name" required value="<?php if($id) echo esc_attr($result->name);?>">
@@ -136,8 +135,14 @@ function crud_admin_page(){
 			/* Data fetch and showing in the table */
 	    	global $wpdb;
 	    	$data = $wpdb->get_results("SELECT id, name, email FROM {$wpdb->prefix}crud ORDER BY id DESC", ARRAY_A);
-	    	$crudObject = new CRUD_UserData($data);
-	    	$crudObject->prepare_items();
+			
+			// object create for CRUD_UserData class
+			$crudObject = new CRUD_UserData($data);
+
+			// Call prepare_items() method
+			$crudObject->prepare_items();
+
+			// Call display() method to show data
 	    	$crudObject->display();
 	    	?>
 	    </div>
@@ -162,7 +167,7 @@ add_action('admin_post_crud_add_record',function(){
 	    	];
 	    	if ($id) {
 	    		$wpdb->update( "{$table_name}", $data, ['id'=>$id] );
-	    		wp_redirect( admin_url('admin.php?page=crud&id=').$id);
+	    		wp_redirect( admin_url('admin.php?page=crud'));
 	    	}else{
 	    		$wpdb->insert("{$table_name}", $data);
 	    		wp_redirect( admin_url('admin.php?page=crud'));
@@ -172,9 +177,4 @@ add_action('admin_post_crud_add_record',function(){
     	}
     }
 });
-
-
-?>
-
-
 

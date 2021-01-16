@@ -42,7 +42,7 @@ If you want to create many meta boxes in Post/Page by ACF Or You need to build a
 Easily you can create Meta boxes, widgets, Setting options, etc by Piklist Framework
 
 ## Post/Page/Taxonomy Column management and filtering (column-demo)
-1. Add/Remove column 
+1. Add/Remove column
 2. Data filtering
 
 ## Option page under settings menu (options-demo)
@@ -72,7 +72,7 @@ This options demo page code written by myself.
 ## Admin Notice (notice-ninja)
 
 ## Plugin action link (plugin-action)
-After activated your plugin, its redirect to the settings page of the plugin. 
+After activated your plugin, its redirect to the settings page of the plugin.
 1. Action link add
 2. Row link add
 
@@ -90,7 +90,7 @@ All operations of Options API
 ## Transient API
 The difference between options and transient is, You can expiry time set on transient
 
-## Woocommerce Product Owner Menu Filter (wc-product-owner-menu-filter)
+## WC Product Owner Menu Filter
 Menu show based on the product owner
 
 ## Roles Api
@@ -117,10 +117,16 @@ All operations of Ajax
 1. Reserved confirmation sent to the email
 2. Reserved data show on the WP Backend (plugin name: cpt-reservation)
 
-## woocommerce-quick-order
+## Woocommerce quick order
 1. Flat discount
 2. Coupon
 3. Password generator
 4. Order Note
 5. Order create
 6. Order status
+
+## WeDevs Tutorial
+1. CRUD System
+2. Data Table
+3. Composer Create for auto loading classes and functions
+4. Create Rest API
