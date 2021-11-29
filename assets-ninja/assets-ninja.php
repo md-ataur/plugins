@@ -61,7 +61,7 @@ if ( !class_exists( "AssetsNinja" ) ) {
                 wp_enqueue_script( "asn-admin-js", ASN_ASSETS_DIR . "/admin/js/admin.js", array( "jquery" ), ASN_VERSION, true );
             }
 
-			/* if('edit-tags.php' == $screen && 'category' == $_screen->taxonomy){
+			/* if('edit-tags.php' == $_screen && 'category' == $_screen->taxonomy){
 			wp_enqueue_script( 'asn-admin-js', ASN_ASSETS_DIR . "/admin/js/admin.js", array( 'jquery' ), VERSION, true );
 			} */
 
